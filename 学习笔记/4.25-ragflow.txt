@@ -1,0 +1,6 @@
+coze，dify，ragflow开源时间
+ragflow定位：基于自研的深度文档解析（deepdoc），主要做RAG知识库
+RAGflow优势：知识库内置切片（通用/论文/书籍/法律/简历/PPT/QA/手册）和图谱内容提取
+1.下载ragflow-main.zip 2.解压 3.进入docker目录安装和启动(docker compose up -d)
+dify只能操作常见的文档，ragflow针对复杂文档（deepdoc），保留原有结构（布局、层级、页码）
+1.先获取ragflow的apikey 2.再获取ragflow知识库的id 3.dify中外接知识库 4.输入任意名称，链接以及ragflow的apikey和知识库id

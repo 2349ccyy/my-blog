@@ -1,0 +1,1894 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ML 知识图谱 — ML Portfolio</title>
+  <meta name="description" content="系统化机器学习知识体系，涵盖监督学习、无监督学习、集成学习、深度学习等核心板块">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- 导航栏 -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="nav-logo">ML Portfolio</a>
+      <div class="nav-links">
+        <a href="index.html">首页</a>
+        <a href="about.html">关于</a>
+        <a href="skills.html">技能栈</a>
+        <a href="ml-knowledge.html">ML知识</a>
+        <a href="projects.html">项目</a>
+        <a href="blog.html">博客</a>
+      </div>
+      <button class="nav-toggle" aria-label="菜单">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- 双栏布局 -->
+  <div class="ml-layout">
+
+    <!-- 左侧树形导航 -->
+    <aside class="sidebar">
+      <button class="tree-mobile-toggle">☰ 知识目录</button>
+      <div class="sidebar-title">知识图谱</div>
+      <nav class="tree">
+
+        <!-- 1. AI概述 -->
+        <div class="tree-node expanded active">
+          <div class="tree-node-header" data-target="ai-overview">
+            <span class="tree-arrow">▶</span>
+            <span class="tree-icon">🤖</span>
+            <span class="tree-label">AI概述</span>
+          </div>
+          <div class="tree-children">
+            <div class="tree-node level-2">
+              <div class="tree-node-header" data-target="ai-ml-dl">
+                <span class="tree-label">AI / ML / DL 关系</span>
+              </div>
+            </div>
+            <div class="tree-node level-2">
+              <div class="tree-node-header" data-target="ml-types">
+                <span class="tree-label">机器学习分类</span>
+              </div>
+            </div>
+            <div class="tree-node level-2">
+              <div class="tree-node-header" data-target="ml-concepts">
+                <span class="tree-label">核心术语</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. 数学基础 -->
+        <div class="tree-node">
+          <div class="tree-node-header">
+            <span class="tree-arrow">▶</span>
+            <span class="tree-icon">📐</span>
+            <span class="tree-label">数学基础</span>
+          </div>
+          <div class="tree-children">
+            <div class="tree-node level-2">
+              <div class="tree-node-header" data-target="linear-algebra">
+                <span class="tree-label">线性代数</span>
+              </div>
+            </div>
+            <div class="tree-node level-2">
+              <div class="tree-node-header" data-target="probability">
+                <span class="tree-label">概率论与统计</span>
+              </div>
+            </div>
+            <div class="tree-node level-2">
+              <div class="tree-node-header" data-target="optimization">
+                <span class="tree-label">最优化方法</span>
+              </div>
+            </div>
+            <div class="tree-node level-2">
+              <div class="tree-node-header" data-target="information-theory">
+                <span class="tree-label">信息论基础</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. 数据预处理 -->
+        <div class="tree-node">
+          <div class="tree-node-header">
+            <span class="tree-arrow">▶</span>
+            <span class="tree-icon">📊</span>
+            <span class="tree-label">数据预处理</span>
+          </div>
+          <div class="tree-children">
+            <div class="tree-node level-2">
+              <div class="tree-node-header" data-target="data-cleaning">
+                <span class="tree-label">数据清洗</span>
+              </div>
+            </div>
+            <div class="tree-node level-2">
+              <div class="tree-node-header" data-target="feature-engineering">
+                <span class="tree-label">特征工程</span>
+              </div>
+            </div>
+            <div class="tree-node level-2">
+              <div class="tree-node-header" data-target="data-split">
+                <span class="tree-label">数据划分与采样</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. 监督学习 -->
+        <div class="tree-node">
+          <div class="tree-node-header" data-target="supervised-overview">
+            <span class="tree-arrow">▶</span>
+            <span class="tree-icon">🎯</span>
+            <span class="tree-label">监督学习</span>
+          </div>
+          <div class="tree-children">
+            <div class="tree-node level-2">
+              <div class="tree-node-header" data-target="linear-regression">
+                <span class="tree-label">线性回归</span>
+              </div>
+            </div>
+            <div class="tree-node level-2">
+              <div class="tree-node-header" data-target="logistic-regression">
+                <span class="tree-label">逻辑回归</span>
+              </div>
+            </div>
+            <div class="tree-node level-2">
+              <div class="tree-node-header" data-target="decision-tree">
+                <span class="tree-label">决策树</span>
+              </div>
+            </div>
+            <div class="tree-node level-2">
+              <div class="tree-node-header" data-target="svm">
+                <span class="tree-label">支持向量机 SVM</span>
+              </div>
+            </div>
+            <div class="tree-node level-2">
+              <div class="tree-node-header" data-target="knn">
+                <span class="tree-label">K近邻 KNN</span>
+              </div>
+            </div>
+            <div class="tree-node level-2">
+              <div class="tree-node-header" data-target="naive-bayes">
+                <span class="tree-label">朴素贝叶斯</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. 无监督学习 -->
+        <div class="tree-node">
+          <div class="tree-node-header" data-target="unsupervised-overview">
+            <span class="tree-arrow">▶</span>
+            <span class="tree-icon">🔍</span>
+            <span class="tree-label">无监督学习</span>
+          </div>
+          <div class="tree-children">
+            <div class="tree-node level-2">
+              <div class="tree-node-header" data-target="kmeans">
+                <span class="tree-label">K-Means 聚类</span>
+              </div>
+            </div>
+            <div class="tree-node level-2">
+              <div class="tree-node-header" data-target="dbscan">
+                <span class="tree-label">DBSCAN</span>
+              </div>
+            </div>
+            <div class="tree-node level-2">
+              <div class="tree-node-header" data-target="pca">
+                <span class="tree-label">PCA 主成分分析</span>
+              </div>
+            </div>
+            <div class="tree-node level-2">
+              <div class="tree-node-header" data-target="hierarchical">
+                <span class="tree-label">层次聚类</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. 集成学习 -->
+        <div class="tree-node">
+          <div class="tree-node-header" data-target="ensemble-overview">
+            <span class="tree-arrow">▶</span>
+            <span class="tree-icon">🌲</span>
+            <span class="tree-label">集成学习</span>
+          </div>
+          <div class="tree-children">
+            <div class="tree-node level-2">
+              <div class="tree-node-header" data-target="bagging">
+                <span class="tree-label">Bagging</span>
+              </div>
+            </div>
+            <div class="tree-node level-2">
+              <div class="tree-node-header" data-target="random-forest">
+                <span class="tree-label">随机森林</span>
+              </div>
+            </div>
+            <div class="tree-node level-2">
+              <div class="tree-node-header">
+                <span class="tree-arrow">▶</span>
+                <span class="tree-label">Boosting 家族</span>
+              </div>
+              <div class="tree-children">
+                <div class="tree-node level-3">
+                  <div class="tree-node-header" data-target="adaboost">
+                    <span class="tree-label">AdaBoost</span>
+                  </div>
+                </div>
+                <div class="tree-node level-3">
+                  <div class="tree-node-header" data-target="gbdt">
+                    <span class="tree-label">GBDT</span>
+                  </div>
+                </div>
+                <div class="tree-node level-3">
+                  <div class="tree-node-header" data-target="xgboost">
+                    <span class="tree-label">XGBoost</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="tree-node level-2">
+              <div class="tree-node-header" data-target="stacking">
+                <span class="tree-label">Stacking</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 7. 深度学习 -->
+        <div class="tree-node">
+          <div class="tree-node-header">
+            <span class="tree-arrow">▶</span>
+            <span class="tree-icon">🧠</span>
+            <span class="tree-label">深度学习</span>
+          </div>
+          <div class="tree-children">
+            <div class="tree-node level-2">
+              <div class="tree-node-header" data-target="perceptron">
+                <span class="tree-label">感知机</span>
+              </div>
+            </div>
+            <div class="tree-node level-2">
+              <div class="tree-node-header" data-target="mlp">
+                <span class="tree-label">多层感知机 MLP</span>
+              </div>
+            </div>
+            <div class="tree-node level-2">
+              <div class="tree-node-header" data-target="pytorch">
+                <span class="tree-label">PyTorch 框架基础</span>
+              </div>
+            </div>
+            <div class="tree-node level-2">
+              <div class="tree-node-header" data-target="cnn">
+                <span class="tree-label">卷积神经网络 CNN</span>
+              </div>
+            </div>
+            <div class="tree-node level-2">
+              <div class="tree-node-header" data-target="rnn-lstm">
+                <span class="tree-label">RNN / LSTM</span>
+              </div>
+            </div>
+            <div class="tree-node level-2">
+              <div class="tree-node-header" data-target="transformer">
+                <span class="tree-label">Transformer</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 8. 模型评估与调优 -->
+        <div class="tree-node">
+          <div class="tree-node-header">
+            <span class="tree-arrow">▶</span>
+            <span class="tree-icon">⚙️</span>
+            <span class="tree-label">模型评估与调优</span>
+          </div>
+          <div class="tree-children">
+            <div class="tree-node level-2">
+              <div class="tree-node-header" data-target="metrics">
+                <span class="tree-label">评估指标</span>
+              </div>
+            </div>
+            <div class="tree-node level-2">
+              <div class="tree-node-header" data-target="cross-validation">
+                <span class="tree-label">交叉验证</span>
+              </div>
+            </div>
+            <div class="tree-node level-2">
+              <div class="tree-node-header" data-target="hyperparameter">
+                <span class="tree-label">超参数调优</span>
+              </div>
+            </div>
+            <div class="tree-node level-2">
+              <div class="tree-node-header" data-target="regularization">
+                <span class="tree-label">正则化</span>
+              </div>
+            </div>
+            <div class="tree-node level-2">
+              <div class="tree-node-header" data-target="bias-variance">
+                <span class="tree-label">偏差与方差</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </nav>
+    </aside>
+
+    <!-- 右侧内容区 -->
+    <main class="content-area">
+
+      <!-- AI概述 -->
+      <div class="content-panel" id="ai-overview">
+        <div class="content-card fade-in">
+          <h2>AI概述</h2>
+          <p class="intro">人工智能（AI）是计算机科学的一个分支，旨在创建能够模拟人类智能的系统。机器学习是实现人工智能的核心方法之一。</p>
+
+          <div class="highlight-box">
+            <div class="label">核心观点</div>
+            <p>人工智能 > 机器学习 > 深度学习。三者是包含关系：深度学习是机器学习的一个子集，机器学习是人工智能的一个子集。</p>
+          </div>
+
+          <div class="knowledge-list">
+            <h3>三大流派</h3>
+            <ul>
+              <li><strong>符号主义：</strong>基于逻辑推理，用符号表示知识，如专家系统</li>
+              <li><strong>连接主义：</strong>基于神经网络，模拟人脑神经元连接，当前主流方向</li>
+              <li><strong>行为主义：</strong>基于"感知-行动"循环，如强化学习</li>
+            </ul>
+          </div>
+
+          <div class="knowledge-list">
+            <h3>机器学习的本质</h3>
+            <ul>
+              <li>从数据中自动学习规律和模式</li>
+              <li>利用学到的规律对未知数据进行预测或决策</li>
+              <li>核心三要素：<strong>数据 + 模型 + 优化算法</strong></li>
+              <li>目标：最小化预测值与真实值之间的误差</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- AI/ML/DL关系 -->
+      <div class="content-panel" id="ai-ml-dl" style="display:none">
+        <div class="content-card fade-in">
+          <h2>AI / ML / DL 关系</h2>
+          <p class="intro">理清人工智能、机器学习、深度学习三者之间的层次关系，是建立完整知识体系的第一步。</p>
+
+          <div class="highlight-box">
+            <div class="label">一句话总结</div>
+            <p>AI 是目标，ML 是实现路径，DL 是 ML 中最强大的技术分支。</p>
+          </div>
+
+          <table class="compare-table">
+            <thead>
+              <tr><th>概念</th><th>定义</th><th>特点</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>人工智能 AI</td>
+                <td>让机器展现智能行为的科学</td>
+                <td>范围最广，包含推理、规划、学习、感知等</td>
+              </tr>
+              <tr>
+                <td>机器学习 ML</td>
+                <td>从数据中自动学习规律</td>
+                <td>不需要显式编程，依赖数据和统计方法</td>
+              </tr>
+              <tr>
+                <td>深度学习 DL</td>
+                <td>使用深层神经网络进行学习</td>
+                <td>自动提取特征，适合图像、语音、NLP 等复杂任务</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="knowledge-list">
+            <h3>发展脉络</h3>
+            <ul>
+              <li>1956 达特茅斯会议提出 AI 概念</li>
+              <li>1980s 机器学习兴起（决策树、SVM 等）</li>
+              <li>2006 Hinton 提出深度信念网络，深度学习复兴</li>
+              <li>2012 AlexNet 在 ImageNet 夺冠，CNN 时代开启</li>
+              <li>2017 Transformer 提出，大模型时代来临</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- 机器学习分类 -->
+      <div class="content-panel" id="ml-types" style="display:none">
+        <div class="content-card fade-in">
+          <h2>机器学习分类</h2>
+          <p class="intro">根据训练数据是否有标签、学习方式的不同，机器学习可分为三大类。</p>
+
+          <table class="compare-table">
+            <thead>
+              <tr><th>类型</th><th>数据标签</th><th>核心任务</th><th>典型算法</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>监督学习</td>
+                <td>有标签 (X, y)</td>
+                <td>分类、回归</td>
+                <td>线性回归、决策树、SVM</td>
+              </tr>
+              <tr>
+                <td>无监督学习</td>
+                <td>无标签 (X)</td>
+                <td>聚类、降维、关联规则</td>
+                <td>K-Means、PCA、DBSCAN</td>
+              </tr>
+              <tr>
+                <td>半监督/强化学习</td>
+                <td>部分标签 / 奖励信号</td>
+                <td>序列决策</td>
+                <td>Q-Learning、Deep Q-Network</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="knowledge-list">
+            <h3>如何选择？</h3>
+            <ul>
+              <li><strong>有标签 + 预测数值 →</strong> 回归（监督学习）</li>
+              <li><strong>有标签 + 预测类别 →</strong> 分类（监督学习）</li>
+              <li><strong>无标签 + 发现分组 →</strong> 聚类（无监督学习）</li>
+              <li><strong>无标签 + 降低维度 →</strong> 降维（无监督学习）</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- 核心术语 -->
+      <div class="content-panel" id="ml-concepts" style="display:none">
+        <div class="content-card fade-in">
+          <h2>核心术语</h2>
+          <p class="intro">掌握以下术语是理解机器学习的前提，这些概念贯穿所有算法的学习过程。</p>
+
+          <div class="knowledge-list">
+            <h3>基础概念</h3>
+            <ul>
+              <li><strong>特征（Feature）：</strong>输入变量，描述样本的属性，记为 X</li>
+              <li><strong>标签（Label）：</strong>输出变量，需要预测的目标值，记为 y</li>
+              <li><strong>样本（Sample）：</strong>一条数据记录，包含特征和（可选的）标签</li>
+              <li><strong>训练集 / 验证集 / 测试集：</strong>分别用于训练模型、调参、最终评估</li>
+              <li><strong>损失函数（Loss Function）：</strong>衡量模型预测值与真实值之间的差距</li>
+              <li><strong>梯度下降（Gradient Descent）：</strong>通过迭代调整参数来最小化损失函数</li>
+            </ul>
+          </div>
+
+          <div class="knowledge-list">
+            <h3>过拟合 vs 欠拟合</h3>
+            <ul>
+              <li><strong>过拟合：</strong>模型在训练集上表现极好，但在测试集上表现差 → 泛化能力弱</li>
+              <li><strong>欠拟合：</strong>模型在训练集和测试集上都表现差 → 学习能力不足</li>
+              <li><strong>泛化能力：</strong>模型对未见过的数据也能做出准确预测的能力</li>
+            </ul>
+          </div>
+
+          <div class="formula-block">
+            通用学习范式：y = f(X; θ) &nbsp;&nbsp;→&nbsp;&nbsp; 最小化 Loss(y_true, y_pred) &nbsp;&nbsp;→&nbsp;&nbsp; 找到最优参数 θ*
+          </div>
+
+          <div class="knowledge-list">
+            <h3>机器学习完整流程</h3>
+            <ul>
+              <li><strong>① 获取数据：</strong>第三方数据、公司业务数据、服务器日志数据等</li>
+              <li><strong>② 数据预处理：</strong>异常值处理（IQR/3σ）、缺失值填充（均值/中位数/插值）</li>
+              <li><strong>③ 切割训练集和测试集：</strong><span class="api-tag">train_test_split()</span> 通常按 7:2:1 划分训练/验证/测试</li>
+              <li><strong>④ 特征工程：</strong>标准化、归一化、独热编码、分箱、特征交叉等</li>
+              <li><strong>⑤ 模型选择：</strong>根据任务类型（分类/回归/聚类）和数据特点选择合适的算法</li>
+              <li><strong>⑥ 模型训练：</strong><span class="api-tag">fit()</span> 训练模型，<span class="api-tag">fit_transform()</span> 训练并转换</li>
+              <li><strong>⑦ 模型预测：</strong><span class="api-tag">predict()</span> 对新数据进行预测</li>
+              <li><strong>⑧ 模型评估：</strong>查看拟合效果 → 欠拟合（训练差+测试差）vs 过拟合（训练好+测试波动）</li>
+              <li><strong>⑨ 模型部署上线：</strong>将训练好的模型应用到生产环境</li>
+            </ul>
+          </div>
+
+          <div class="knowledge-list">
+            <h3>奥卡姆剃刀原则</h3>
+            <ul>
+              <li>如果两个模型泛化表现相同，优先选择<strong>简单的模型</strong></li>
+              <li>泛化能力 = 训练好的模型在未知数据上的表现能力</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- 数学基础 — 线性代数 -->
+      <div class="content-panel" id="linear-algebra" style="display:none">
+        <div class="content-card fade-in">
+          <h2>线性代数</h2>
+          <p class="intro">线性代数是机器学习的语言——数据表示为矩阵，模型参数表示为向量，运算本质是线性变换。</p>
+
+          <div class="knowledge-list">
+            <h3>核心概念</h3>
+            <ul>
+              <li><strong>标量 / 向量 / 矩阵 / 张量：</strong>数据的四种表示层级（0D → 1D → 2D → nD）</li>
+              <li><strong>矩阵乘法：</strong>神经网络每一层的前向传播本质：Y = WX + b</li>
+              <li><strong>转置、逆矩阵：</strong>用于求解线性方程组和最小二乘法</li>
+              <li><strong>特征值 / 特征向量：</strong>PCA 降维的核心数学工具</li>
+              <li><strong>范数：</strong>L1 范数（稀疏解）、L2 范数（平滑解），用于正则化</li>
+            </ul>
+          </div>
+
+          <div class="formula-block">
+            线性模型的一般形式：<strong>ŷ = X · w + b</strong><br>
+            其中 X ∈ R<sup>n×d</sup>（样本矩阵），w ∈ R<sup>d</sup>（权重向量）
+          </div>
+
+          <div class="knowledge-list">
+            <h3>ML 常用的数学概念</h3>
+            <ul>
+              <li><strong>导数：</strong>描述函数在某点的瞬时变化率，梯度下降的基础</li>
+              <li><strong>偏导：</strong>多元函数对某一变量的导数（其他变量视为常数）</li>
+              <li><strong>标量：</strong>只有大小、没有方向的量（单个数值）</li>
+              <li><strong>向量：</strong>既有大小、又有方向的量（一维数组）</li>
+              <li><strong>矩阵：</strong>二维数组（m×n）。矩阵乘法前提：A 的列 = B 的行，结果矩阵为 m×p</li>
+              <li><strong>张量：</strong>多维数组的统称（n 维），PyTorch 的核心数据结构</li>
+              <li><strong>梯度：</strong>由所有偏导数组成的向量，指向函数增长最快的方向</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- 概率论与统计 -->
+      <div class="content-panel" id="probability" style="display:none">
+        <div class="content-card fade-in">
+          <h2>概率论与统计</h2>
+          <p class="intro">机器学习处理的是不确定性问题——概率论提供了在噪声数据中进行推理的数学框架。</p>
+
+          <div class="knowledge-list">
+            <h3>核心概念</h3>
+            <ul>
+              <li><strong>条件概率与贝叶斯公式：</strong>朴素贝叶斯分类器的理论基础</li>
+              <li><strong>最大似然估计（MLE）：</strong>逻辑回归等模型参数估计的常用方法</li>
+              <li><strong>期望与方差：</strong>刻画随机变量分布的集中趋势和离散程度</li>
+              <li><strong>高斯分布（正态分布）：</strong>自然界最常见分布，许多 ML 假设的基础</li>
+              <li><strong>协方差与相关系数：</strong>衡量特征间的线性相关程度</li>
+            </ul>
+          </div>
+
+          <div class="formula-block">
+            贝叶斯公式：P(A|B) = P(B|A) × P(A) / P(B)<br>
+            最大似然估计：θ<sub>MLE</sub> = arg max<sub>θ</sub> ∏ P(x<sub>i</sub> | θ)
+          </div>
+        </div>
+      </div>
+
+      <!-- 最优化方法 -->
+      <div class="content-panel" id="optimization" style="display:none">
+        <div class="content-card fade-in">
+          <h2>最优化方法</h2>
+          <p class="intro">机器学习的训练过程本质上是一个优化问题——寻找使损失函数最小的模型参数。</p>
+
+          <div class="knowledge-list">
+            <h3>梯度下降及其变体</h3>
+            <ul>
+              <li><strong>批量梯度下降（BGD）：</strong>用全部样本计算梯度，精确但计算量大</li>
+              <li><strong>随机梯度下降（SGD）：</strong>每次随机用1个样本，速度快但波动大</li>
+              <li><strong>小批量梯度下降（Mini-batch SGD）：</strong>折中方案，深度学习中最常用</li>
+            </ul>
+          </div>
+
+          <div class="knowledge-list">
+            <h3>高级优化器</h3>
+            <ul>
+              <li><strong>Momentum：</strong>引入动量项，加速收敛、减少震荡</li>
+              <li><strong>Adam：</strong>结合动量和自适应学习率，目前最流行的优化器</li>
+              <li><strong>学习率调度：</strong>StepLR、CosineAnnealing 等策略动态调整学习率</li>
+            </ul>
+          </div>
+
+          <div class="formula-block">
+            SGD 更新规则：θ<sub>t+1</sub> = θ<sub>t</sub> − η ∇L(θ<sub>t</sub>)<br>
+            其中 η 为学习率，∇L 为损失函数对参数的梯度
+          </div>
+        </div>
+      </div>
+
+      <!-- 信息论基础 -->
+      <div class="content-panel" id="information-theory" style="display:none">
+        <div class="content-card fade-in">
+          <h2>信息论基础</h2>
+          <p class="intro">信息论为理解模型的不确定性、特征选择以及损失函数的设计提供了理论依据。</p>
+
+          <div class="knowledge-list">
+            <h3>核心概念</h3>
+            <ul>
+              <li><strong>熵（Entropy）：</strong>衡量随机变量的不确定性，熵越大越不确定</li>
+              <li><strong>交叉熵（Cross-Entropy）：</strong>分类任务中最常用的损失函数</li>
+              <li><strong>KL 散度：</strong>衡量两个概率分布之间的差异（非对称）</li>
+              <li><strong>互信息：</strong>衡量两个变量之间的相互依赖程度，可用于特征选择</li>
+            </ul>
+          </div>
+
+          <div class="formula-block">
+            熵：H(X) = −∑ P(x) · log P(x)<br>
+            交叉熵（二分类）：L = −[y·log(ŷ) + (1−y)·log(1−ŷ)]
+          </div>
+        </div>
+      </div>
+
+      <!-- 数据预处理 — 数据清洗 -->
+      <div class="content-panel" id="data-cleaning" style="display:none">
+        <div class="content-card fade-in">
+          <h2>数据清洗</h2>
+          <p class="intro">真实数据往往是"脏"的——缺失值、异常值、重复数据等问题需要在建模前处理。</p>
+
+          <div class="knowledge-list">
+            <h3>处理方法</h3>
+            <ul>
+              <li><strong>缺失值处理：</strong>删除（缺失过多时）、均值/中位数填充、KNN 填充、插值法</li>
+              <li><strong>异常值检测：</strong>3σ 原则 · 箱线图 IQR · 孤立森林</li>
+              <li><strong>异常值处理：</strong>截断（capping）、变换（log 变换）、删除</li>
+              <li><strong>重复值：</strong>drop_duplicates() 直接删除</li>
+              <li><strong>数据类型转换：</strong>确保数值列是 int/float，类别列是 category/object</li>
+            </ul>
+          </div>
+
+          <div class="code-block">
+            <span class="lang-tag">Python</span>
+            <pre><span class="kw">import</span> pandas <span class="kw">as</span> pd
+
+<span class="cm"># 缺失值检查与填充</span>
+df.isnull().sum()
+df[<span class="str">'age'</span>].fillna(df[<span class="str">'age'</span>].median(), inplace=<span class="kw">True</span>)
+
+<span class="cm"># IQR 异常值检测</span>
+Q1 = df[<span class="str">'price'</span>].quantile(0.25)
+Q3 = df[<span class="str">'price'</span>].quantile(0.75)
+IQR = Q3 - Q1
+outliers = (df[<span class="str">'price'</span>] &lt; Q1 - 1.5*IQR) | (df[<span class="str">'price'</span>] &gt; Q3 + 1.5*IQR)</pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- 特征工程 -->
+      <div class="content-panel" id="feature-engineering" style="display:none">
+        <div class="content-card fade-in">
+          <h2>特征工程</h2>
+          <p class="intro">"数据和特征决定了机器学习的上限，模型和算法只是逼近这个上限。"特征工程是 ML 中最关键的环节之一。</p>
+
+          <div class="knowledge-list">
+            <h3>特征处理流水线</h3>
+            <ul>
+              <li><strong>标准化（Standardization）：</strong>使数据均值为 0、标准差为 1，适用于 SVM、PCA 等</li>
+              <li><strong>归一化（Normalization）：</strong>将数据缩放到 [0,1] 区间，适用于神经网络</li>
+              <li><strong>独热编码（One-Hot Encoding）：</strong>将类别特征转化为二进制向量</li>
+              <li><strong>分箱（Binning）：</strong>将连续值离散化，增强模型非线性表达能力</li>
+              <li><strong>多项式特征：</strong>创建特征的高阶组合，捕捉非线性关系</li>
+              <li><strong>特征交叉：</strong>组合多个特征创造新特征</li>
+            </ul>
+          </div>
+
+          <div class="knowledge-list">
+            <h3>标准化 vs 归一化</h3>
+            <ul>
+              <li><strong>归一化（MinMaxScaler）：</strong>受异常值影响大，适合数据分布已知的场景<span class="api-tag">from sklearn.preprocessing import MinMaxScaler</span></li>
+              <li><strong>标准化（StandardScaler）：</strong>受异常值影响小，适合数据分布未知的场景，<strong>更常用</strong><span class="api-tag">from sklearn.preprocessing import StandardScaler</span></li>
+            </ul>
+          </div>
+
+          <div class="code-block">
+            <span class="lang-tag">Python</span>
+            <pre><span class="kw">from</span> sklearn.preprocessing <span class="kw">import</span> StandardScaler, OneHotEncoder
+
+scaler = StandardScaler()
+X_scaled = scaler.fit_transform(X)
+
+encoder = OneHotEncoder(sparse_output=<span class="kw">False</span>)
+X_encoded = encoder.fit_transform(df[[<span class="str">'category'</span>]])</pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- 数据划分与采样 -->
+      <div class="content-panel" id="data-split" style="display:none">
+        <div class="content-card fade-in">
+          <h2>数据划分与采样</h2>
+          <p class="intro">合理的数据划分是模型评估可靠性的基础，划分不当会导致评估结果失真。</p>
+
+          <div class="knowledge-list">
+            <h3>划分策略</h3>
+            <ul>
+              <li><strong>留出法（Hold-out）：</strong>简单按比例划分（如 7:2:1），最常用</li>
+              <li><strong>分层抽样（Stratified Split）：</strong>保持各类别比例一致，适用于不平衡数据</li>
+              <li><strong>交叉验证（Cross-Validation）：</strong>K 折 CV 更充分利用数据</li>
+              <li><strong>时间序列划分：</strong>按时间顺序划分，防止未来信息泄露</li>
+            </ul>
+          </div>
+
+          <div class="knowledge-list">
+            <h3>不平衡数据处理</h3>
+            <ul>
+              <li><strong>过采样（Oversampling）：</strong>SMOTE 合成少数类样本</li>
+              <li><strong>欠采样（Undersampling）：</strong>随机删除多数类样本</li>
+              <li><strong>代价敏感学习：</strong>给少数类错分更高的惩罚权重</li>
+            </ul>
+          </div>
+
+          <div class="code-block">
+            <span class="lang-tag">Python</span>
+            <pre><span class="kw">from</span> sklearn.model_selection <span class="kw">import</span> train_test_split
+<span class="kw">from</span> imblearn.over_sampling <span class="kw">import</span> SMOTE
+
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, stratify=y, random_state=42
+)
+
+smote = SMOTE(random_state=42)
+X_resampled, y_resampled = smote.fit_resample(X_train, y_train)</pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- 监督学习总览 -->
+      <div class="content-panel" id="supervised-overview" style="display:none">
+        <div class="content-card fade-in">
+          <h2>监督学习</h2>
+          <p class="intro">监督学习是机器学习中最成熟的领域——给定带标签的训练数据 (X, y)，学习从输入到输出的映射关系 f: X → y。</p>
+
+          <div class="highlight-box">
+            <div class="label">核心思想</div>
+            <p>通过最小化预测值 f(X) 与真实标签 y 之间的损失，找到最优映射函数。</p>
+          </div>
+
+          <div class="knowledge-list">
+            <h3>两大任务类型</h3>
+            <ul>
+              <li><strong>回归（Regression）：</strong>预测连续值。如房价预测、股票价格预测</li>
+              <li><strong>分类（Classification）：</strong>预测离散类别。如垃圾邮件识别、图像识别</li>
+            </ul>
+          </div>
+
+          <table class="compare-table">
+            <thead><tr><th>算法</th><th>任务</th><th>核心思想</th><th>优点</th><th>缺点</th></tr></thead>
+            <tbody>
+              <tr><td>线性回归</td><td>回归</td><td>最小二乘法</td><td>简单可解释</td><td>只能拟合线性关系</td></tr>
+              <tr><td>逻辑回归</td><td>二分类</td><td>Sigmoid + 最大似然</td><td>输出概率，可解释</td><td>线性决策边界</td></tr>
+              <tr><td>决策树</td><td>分类/回归</td><td>信息增益递归划分</td><td>可视化、无需归一化</td><td>易过拟合</td></tr>
+              <tr><td>SVM</td><td>分类/回归</td><td>最大间隔超平面</td><td>高维有效</td><td>大规模数据慢</td></tr>
+              <tr><td>KNN</td><td>分类/回归</td><td>距离投票</td><td>无需训练、简单</td><td>计算量大</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- 线性回归 -->
+      <div class="content-panel" id="linear-regression" style="display:none">
+        <div class="content-card fade-in">
+          <h2>线性回归</h2>
+          <p class="intro">最基础也是最重要的回归算法——假设目标值与特征之间存在线性关系。</p>
+
+          <div class="formula-block">
+            ŷ = w<sub>0</sub> + w<sub>1</sub>x<sub>1</sub> + w<sub>2</sub>x<sub>2</sub> + ... + w<sub>n</sub>x<sub>n</sub> = Xw
+          </div>
+
+          <div class="knowledge-list">
+            <h3>三个关键假设</h3>
+            <ul>
+              <li><strong>线性性：</strong>自变量与因变量之间存在线性关系</li>
+              <li><strong>独立性：</strong>各观测值相互独立</li>
+              <li><strong>同方差性：</strong>误差项的方差恒定</li>
+              <li><strong>正态性：</strong>误差项服从正态分布</li>
+            </ul>
+          </div>
+
+          <div class="knowledge-list">
+            <h3>求解方法对比</h3>
+            <ul>
+              <li><strong>正规方程（解析解）：</strong>w = (XᵀX)⁻¹Xᵀy，一步到位直接计算，计算量大只适合小数据，可能无逆矩阵导致无解</li>
+              <li><strong>梯度下降（迭代解）：</strong>通过迭代更新参数 w<sub>new</sub> = w<sub>old</sub> − lr × ∇L，逐步逼近最优解，适合大数据</li>
+            </ul>
+          </div>
+
+          <div class="knowledge-list">
+            <h3>梯度下降的三种形态</h3>
+            <ul>
+              <li><strong>全梯度下降（BGD/FGD）：</strong>用全部样本计算梯度，精确但计算慢</li>
+              <li><strong>随机梯度下降（SGD）：</strong>每次随机用 1 个样本，速度快但波动大<span class="api-tag">from sklearn.linear_model import SGDRegressor</span></li>
+              <li><strong>小批量梯度下降（MBGD）：</strong>折中方案，每次用一批样本，深度学习最常用</li>
+            </ul>
+          </div>
+
+          <div class="knowledge-list">
+            <h3>正则化变体</h3>
+            <ul>
+              <li><strong>Ridge 回归（L2）：</strong>损失 + λ‖w‖₂²，收缩系数但不为零</li>
+              <li><strong>Lasso 回归（L1）：</strong>损失 + λ‖w‖₁，可产生稀疏解（特征选择）</li>
+              <li><strong>ElasticNet：</strong>L1 + L2 结合，兼具两者优点</li>
+            </ul>
+          </div>
+
+          <div class="code-block">
+            <span class="lang-tag">Python</span>
+            <pre><span class="kw">from</span> sklearn.linear_model <span class="kw">import</span> LinearRegression, Ridge, Lasso
+
+model = LinearRegression()
+model.fit(X_train, y_train)
+y_pred = model.predict(X_test)
+<span class="kw">print</span>(<span class="str">'R²:'</span>, model.score(X_test, y_test))
+
+<span class="cm"># 梯度下降方式求解</span>
+<span class="kw">from</span> sklearn.linear_model <span class="kw">import</span> SGDRegressor
+sgd = SGDRegressor(max_iter=1000, learning_rate=<span class="str">'constant'</span>, eta0=0.01)
+sgd.fit(X_train, y_train)</pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- 逻辑回归 -->
+      <div class="content-panel" id="logistic-regression" style="display:none">
+        <div class="content-card fade-in">
+          <h2>逻辑回归</h2>
+          <p class="intro">名为"回归"，实为分类——通过 Sigmoid 函数将线性输出映射到 [0,1] 概率区间。</p>
+
+          <div class="formula-block">
+            P(y=1|x) = σ(z) = 1 / (1 + e<sup>−z</sup>)，其中 z = Xw<br>
+            σ(z) ∈ (0, 1)，可解释为样本属于正类的概率
+          </div>
+
+          <div class="knowledge-list">
+            <h3>核心要点</h3>
+            <ul>
+              <li><strong>损失函数：</strong>交叉熵损失（Cross-Entropy），而非 MSE</li>
+              <li><strong>决策边界：</strong>P=0.5 对应的超平面，是线性的</li>
+              <li><strong>多分类扩展：</strong>Softmax 回归（OvR 或 Multinomial）</li>
+              <li><strong>概率输出：</strong>天然输出概率值，便于设置不同阈值</li>
+            </ul>
+          </div>
+
+          <div class="knowledge-list">
+            <h3>底层优化原理</h3>
+            <ul>
+              <li>将求最大概率的<strong>似然函数</strong>取负对数</li>
+              <li>得到最小化的<strong>交叉熵损失函数</strong></li>
+              <li>更简单、稳定，适配 AI 通用优化方法：梯度下降</li>
+            </ul>
+          </div>
+
+          <div class="code-block">
+            <span class="lang-tag">Python</span>
+            <pre><span class="kw">from</span> sklearn.linear_model <span class="kw">import</span> LogisticRegression
+
+model = LogisticRegression(penalty=<span class="str">'l2'</span>, C=1.0, solver=<span class="str">'lbfgs'</span>)
+model.fit(X_train, y_train)
+y_prob = model.predict_proba(X_test)[:, 1]  <span class="cm"># 获取概率</span></pre>
+          </div>
+
+          <div class="knowledge-list">
+            <h3>实战案例：癌症预测完整流程</h3>
+            <ul>
+              <li>① 获取数据：pd.read_csv('breast-cancer-wisconsin.csv')</li>
+              <li>② 数据预处理：缺失值替换 ? → np.nan + dropna()</li>
+              <li>③ 切割数据：train_test_split(test_size=0.2)</li>
+              <li>④ 特征标准化：StandardScaler().fit_transform()</li>
+              <li>⑤ 模型训练：LogisticRegression().fit(x_train, y_train)</li>
+              <li>⑥ 综合评估：准确率+精确率+召回率+F1+混淆矩阵</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- 决策树 -->
+      <div class="content-panel" id="decision-tree" style="display:none">
+        <div class="content-card fade-in">
+          <h2>决策树</h2>
+          <p class="intro">模拟人类决策过程的树形结构模型，通过递归划分特征空间进行分类或回归。</p>
+
+          <div class="knowledge-list">
+            <h3>分裂准则</h3>
+            <ul>
+              <li><strong>信息增益（ID3）：</strong>选择使信息熵减少最多的特征进行分裂</li>
+              <li><strong>信息增益率（C4.5）：</strong>克服 ID3 偏向取值多的特征</li>
+              <li><strong>基尼指数（CART）：</strong>衡量节点纯度，值越小越纯，计算更快</li>
+            </ul>
+          </div>
+
+          <div class="formula-block">
+            熵：H(D) = −∑ p<sub>k</sub> · log₂(p<sub>k</sub>)<br>
+            基尼指数：Gini(D) = 1 − ∑ p<sub>k</sub>²<br>
+            信息增益：IG(D, A) = H(D) − H(D|A)
+          </div>
+
+          <div class="knowledge-list">
+            <h3>剪枝策略</h3>
+            <ul>
+              <li><strong>预剪枝：</strong>限制最大深度、最小样本分裂数、最小叶节点样本数</li>
+              <li><strong>后剪枝：</strong>先完整生长，再从底向上剪除不重要的分支</li>
+              <li><strong>代价复杂度剪枝（CCP）：</strong>CART 使用的剪枝方法</li>
+            </ul>
+          </div>
+
+          <div class="code-block">
+            <span class="lang-tag">Python</span>
+            <pre><span class="kw">from</span> sklearn.tree <span class="kw">import</span> DecisionTreeClassifier
+
+model = DecisionTreeClassifier(
+    max_depth=5, min_samples_split=10, criterion=<span class="str">'gini'</span>
+)
+model.fit(X_train, y_train)</pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- SVM -->
+      <div class="content-panel" id="svm" style="display:none">
+        <div class="content-card fade-in">
+          <h2>支持向量机 SVM</h2>
+          <p class="intro">SVM 寻找一个最优超平面，使不同类别的样本到超平面的最小距离（间隔）最大化。</p>
+
+          <div class="highlight-box">
+            <div class="label">核心思想</div>
+            <p>最大间隔分类 + 核技巧 = SVM。支持向量是离决策边界最近的那些样本，它们是定义边界的关键。</p>
+          </div>
+
+          <div class="knowledge-list">
+            <h3>三大核心概念</h3>
+            <ul>
+              <li><strong>最大间隔：</strong>不仅正确分类，还要让分类边界尽可能远离各类样本</li>
+              <li><strong>软间隔（C 参数）：</strong>允许少量错分，C 越大惩罚越重（越容易过拟合）</li>
+              <li><strong>核技巧（Kernel Trick）：</strong>隐式将数据映射到高维空间，使非线性可分变为线性可分</li>
+            </ul>
+          </div>
+
+          <table class="compare-table">
+            <thead><tr><th>核函数</th><th>公式</th><th>适用场景</th></tr></thead>
+            <tbody>
+              <tr><td>线性核</td><td>K(x,y) = x·y</td><td>线性可分、特征维度高</td></tr>
+              <tr><td>多项式核</td><td>K(x,y) = (x·y + c)ᵈ</td><td>有一定非线性</td></tr>
+              <tr><td>RBF 核</td><td>K(x,y) = exp(−γ‖x−y‖²)</td><td>最常用、非线性场景</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- KNN -->
+      <div class="content-panel" id="knn" style="display:none">
+        <div class="content-card fade-in">
+          <h2>K近邻 KNN</h2>
+          <p class="intro">"近朱者赤，近墨者黑"——一个样本的类别由其 K 个最近邻居的类别投票决定。</p>
+
+          <div class="highlight-box">
+            <div class="label">特点</div>
+            <p>KNN 属于懒惰学习（Lazy Learning）——没有显式训练过程，所有计算都在预测时进行。</p>
+          </div>
+
+          <div class="knowledge-list">
+            <h3>关键要素</h3>
+            <ul>
+              <li><strong>K 值选择：</strong>K 太小→过拟合/噪声敏感；K 太大→欠拟合/边界模糊。通常用交叉验证选择</li>
+              <li><strong>距离度量：</strong>欧氏距离（最常用）、曼哈顿距离、余弦相似度</li>
+              <li><strong>投票机制：</strong>多数投票（分类）、加权平均（回归）</li>
+              <li><strong>必须标准化：</strong>KNN 对特征尺度敏感，预处理时必须做标准化</li>
+            </ul>
+          </div>
+
+          <div class="formula-block">
+            欧氏距离：d(x, y) = √(∑(x<sub>i</sub> − y<sub>i</sub>)²)<br>
+            分类规则：ŷ = mode(y<sub>neighbor₁</sub>, ..., y<sub>neighborₖ</sub>)
+          </div>
+
+          <div class="knowledge-list">
+            <h3>分类 vs 回归</h3>
+            <ul>
+              <li><strong>KNN 分类：</strong>距离最近的 K 个数据投票决定类别<span class="api-tag">from sklearn.neighbors import KNeighborsClassifier</span></li>
+              <li><strong>KNN 回归：</strong>距离最近的 K 个数据的平均值作为预测结果<span class="api-tag">from sklearn.neighbors import KNeighborsRegressor</span></li>
+            </ul>
+          </div>
+
+          <div class="code-block">
+            <span class="lang-tag">Python</span>
+            <pre><span class="kw">from</span> sklearn.neighbors <span class="kw">import</span> KNeighborsClassifier
+<span class="kw">from</span> sklearn.preprocessing <span class="kw">import</span> StandardScaler
+<span class="kw">from</span> sklearn.model_selection <span class="kw">import</span> train_test_split
+
+<span class="cm"># 必须先标准化</span>
+scaler = StandardScaler()
+X_scaled = scaler.fit_transform(X)
+
+X_train, X_test, y_train, y_test = train_test_split(X_scaled, y, test_size=0.2)
+
+model = KNeighborsClassifier(n_neighbors=5)
+model.fit(X_train, y_train)
+<span class="kw">print</span>(model.score(X_test, y_test))</pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- 朴素贝叶斯 -->
+      <div class="content-panel" id="naive-bayes" style="display:none">
+        <div class="content-card fade-in">
+          <h2>朴素贝叶斯</h2>
+          <p class="intro">基于贝叶斯定理的分类器，其"朴素"之处在于假设所有特征相互独立。</p>
+
+          <div class="formula-block">
+            P(C|X) = P(X|C) × P(C) / P(X) ∝ P(X|C) × P(C)<br>
+            其中 P(X|C) = ∏ P(x<sub>i</sub>|C)（朴素条件独立假设）
+          </div>
+
+          <div class="knowledge-list">
+            <h3>三种变体</h3>
+            <ul>
+              <li><strong>高斯朴素贝叶斯：</strong>假设特征服从高斯分布（连续特征）</li>
+              <li><strong>多项式朴素贝叶斯：</strong>适用于离散计数特征（如文本词频）</li>
+              <li><strong>伯努利朴素贝叶斯：</strong>适用于二值特征（出现/不出现）</li>
+            </ul>
+          </div>
+
+          <div class="knowledge-list">
+            <h3>优缺点</h3>
+            <ul>
+              <li><strong>优点：</strong>计算速度快、小数据表现好、适合文本分类（如垃圾邮件过滤）</li>
+              <li><strong>缺点：</strong>特征独立假设在实际中很难满足</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- 无监督学习总览 -->
+      <div class="content-panel" id="unsupervised-overview" style="display:none">
+        <div class="content-card fade-in">
+          <h2>无监督学习</h2>
+          <p class="intro">无监督学习在无标签数据中发现隐藏的结构——让数据"自己说话"。</p>
+
+          <div class="highlight-box">
+            <div class="label">核心思想</div>
+            <p>不需要人工标注，直接从数据中学习模式，适用于标签获取成本高的场景。</p>
+          </div>
+
+          <div class="knowledge-list">
+            <h3>三大任务方向</h3>
+            <ul>
+              <li><strong>聚类（Clustering）：</strong>将相似样本归为一组 → K-Means、DBSCAN、层次聚类</li>
+              <li><strong>降维（Dimensionality Reduction）：</strong>减少特征数量同时保留主要信息 → PCA、t-SNE</li>
+              <li><strong>关联规则（Association Rules）：</strong>发现特征间的关联关系 → Apriori、FP-Growth</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- K-Means -->
+      <div class="content-panel" id="kmeans" style="display:none">
+        <div class="content-card fade-in">
+          <h2>K-Means 聚类</h2>
+          <p class="intro">最经典的聚类算法，通过迭代优化使簇内距离平方和最小。</p>
+
+          <div class="knowledge-list">
+            <h3>算法步骤</h3>
+            <ul>
+              <li>① 随机选择 K 个初始聚类中心</li>
+              <li>② 将每个样本分配到最近的聚类中心</li>
+              <li>③ 重新计算每个簇的均值作为新的聚类中心</li>
+              <li>④ 重复 ②③ 直到中心不再变化或达到最大迭代次数</li>
+            </ul>
+          </div>
+
+          <div class="formula-block">
+            目标函数：J = ∑ ∑ ‖x − μ<sub>i</sub>‖²（每个簇内的样本到质心的距离平方和）
+          </div>
+
+          <div class="knowledge-list">
+            <h3>关键问题</h3>
+            <ul>
+              <li><strong>K 值选择：</strong>肘部法则（Elbow Method）、轮廓系数（Silhouette Score）</li>
+              <li><strong>初始点敏感：</strong>K-Means++ 优化初始中心点选择</li>
+              <li><strong>仅适合球形簇：</strong>对非球形分布的数据效果差</li>
+            </ul>
+          </div>
+
+          <div class="code-block">
+            <span class="lang-tag">Python</span>
+            <pre><span class="kw">from</span> sklearn.cluster <span class="kw">import</span> KMeans
+
+model = KMeans(n_clusters=3, init=<span class="str">'k-means++'</span>, random_state=42)
+labels = model.fit_predict(X)
+<span class="kw">print</span>(<span class="str">'惯性值:'</span>, model.inertia_)</pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- DBSCAN -->
+      <div class="content-panel" id="dbscan" style="display:none">
+        <div class="content-card fade-in">
+          <h2>DBSCAN</h2>
+          <p class="intro">基于密度的聚类算法，能够发现任意形状的簇，同时自动识别噪声点。</p>
+
+          <div class="knowledge-list">
+            <h3>核心概念</h3>
+            <ul>
+              <li><strong>ε 邻域：</strong>以某点为中心、ε 为半径的区域</li>
+              <li><strong>核心点（Core Point）：</strong>邻域内样本数 ≥ minPts 的点</li>
+              <li><strong>边界点（Border Point）：</strong>邻域内样本数 < minPts，但在核心点的邻域内</li>
+              <li><strong>噪声点（Noise Point）：</strong>既不是核心点也不是边界点</li>
+            </ul>
+          </div>
+
+          <div class="knowledge-list">
+            <h3>vs K-Means</h3>
+            <ul>
+              <li><strong>优点：</strong>不需要预设 K 值、能发现任意形状簇、自动识别噪声</li>
+              <li><strong>缺点：</strong>参数 ε 和 minPts 难调、密度差异大时效果差、高维数据效果差</li>
+            </ul>
+          </div>
+
+          <div class="code-block">
+            <span class="lang-tag">Python</span>
+            <pre><span class="kw">from</span> sklearn.cluster <span class="kw">import</span> DBSCAN
+
+model = DBSCAN(eps=0.5, min_samples=5)
+labels = model.fit_predict(X)
+<span class="kw">print</span>(<span class="str">'噪声点数量:'</span>, sum(labels == -1))</pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- PCA -->
+      <div class="content-panel" id="pca" style="display:none">
+        <div class="content-card fade-in">
+          <h2>PCA 主成分分析</h2>
+          <p class="intro">最常用的线性降维方法——将数据投影到方差最大的方向（主成分），用较少维度保留最多信息。</p>
+
+          <div class="knowledge-list">
+            <h3>算法步骤</h3>
+            <ul>
+              <li>① 数据中心化（减去均值）</li>
+              <li>② 计算协方差矩阵</li>
+              <li>③ 对协方差矩阵做特征值分解</li>
+              <li>④ 按特征值降序排列，选取前 k 个特征向量作为主成分</li>
+              <li>⑤ 将原始数据投影到选定的主成分上</li>
+            </ul>
+          </div>
+
+          <div class="formula-block">
+            协方差矩阵：C = XᵀX / n<br>
+            方差解释率：λ<sub>i</sub> / ∑λ<sub>j</sub>（第 i 个主成分解释的方差比例）
+          </div>
+
+          <div class="knowledge-list">
+            <h3>应用场景</h3>
+            <ul>
+              <li><strong>数据可视化：</strong>降至 2D/3D 便于绘图</li>
+              <li><strong>去噪：</strong>丢弃小特征值对应的成分（往往对应噪声）</li>
+              <li><strong>加速训练：</strong>减少特征维度降低计算量</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- 层次聚类 -->
+      <div class="content-panel" id="hierarchical" style="display:none">
+        <div class="content-card fade-in">
+          <h2>层次聚类</h2>
+          <p class="intro">通过构建层次树（树状图/Dendrogram）来展示样本之间的嵌套关系，不需要预设簇数量。</p>
+
+          <div class="knowledge-list">
+            <h3>两种策略</h3>
+            <ul>
+              <li><strong>自底向上（凝聚法 Agglomerative）：</strong>每个样本起始为一个簇，逐步合并最相似的簇</li>
+              <li><strong>自顶向下（分裂法 Divisive）：</strong>所有样本起始为一个大簇，逐步分裂</li>
+            </ul>
+          </div>
+
+          <div class="knowledge-list">
+            <h3>簇间距离度量</h3>
+            <ul>
+              <li><strong>单链接（Single Linkage）：</strong>取两个簇最近样本距离 → 对噪声敏感</li>
+              <li><strong>全链接（Complete Linkage）：</strong>取两个簇最远样本距离 → 倾向球形簇</li>
+              <li><strong>平均链接（Average Linkage）：</strong>取所有样本对距离平均值 → 折中方案</li>
+              <li><strong>Ward 法：</strong>最小化合并后的方差增量 → 最常用</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- 集成学习总览 -->
+      <div class="content-panel" id="ensemble-overview" style="display:none">
+        <div class="content-card fade-in">
+          <h2>集成学习</h2>
+          <p class="intro">"三个臭皮匠，顶个诸葛亮"——集成学习通过组合多个弱学习器来构建一个强学习器。</p>
+
+          <div class="highlight-box">
+            <div class="label">核心思想</div>
+            <p>个体学习器要"好而不同"——每个基学习器要有一定准确度，同时彼此之间要有差异。</p>
+          </div>
+
+          <table class="compare-table">
+            <thead><tr><th>方法</th><th>代表算法</th><th>基学习器关系</th><th>核心思想</th></tr></thead>
+            <tbody>
+              <tr><td>Bagging</td><td>随机森林</td><td>并行、独立</td><td>Bootstrap 采样 + 投票/平均</td></tr>
+              <tr><td>Boosting</td><td>AdaBoost / GBDT / XGBoost</td><td>串行、依赖</td><td>逐步修正前一个学习器的错误</td></tr>
+              <tr><td>Stacking</td><td>Stacked Generalization</td><td>分层</td><td>用元学习器组合多个基学习器</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Bagging -->
+      <div class="content-panel" id="bagging" style="display:none">
+        <div class="content-card fade-in">
+          <h2>Bagging</h2>
+          <p class="intro">Bootstrap Aggregating——通过自助采样生成多个训练集，训练多个基学习器，最后投票或取平均。</p>
+
+          <div class="knowledge-list">
+            <h3>核心机制</h3>
+            <ul>
+              <li><strong>Bootstrap 采样：</strong>从原始训练集中有放回地随机抽取 n 个样本，重复 m 次得到 m 个训练集</li>
+              <li><strong>并行训练：</strong>m 个基学习器独立训练，互不影响</li>
+              <li><strong>聚合预测：</strong>分类→多数投票；回归→简单平均</li>
+              <li><strong>袋外估计（OOB）：</strong>未被采样的约 36.8% 样本可作为验证集</li>
+            </ul>
+          </div>
+
+          <div class="highlight-box">
+            <div class="label">为什么有效？</div>
+            <p>Bagging 主要降低方差，适合高方差模型（如决策树）。每个基学习器在不同的数据子集上训练，平均后能显著减少过拟合。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 随机森林 -->
+      <div class="content-panel" id="random-forest" style="display:none">
+        <div class="content-card fade-in">
+          <h2>随机森林</h2>
+          <p class="intro">Bagging + 决策树的经典组合——在 Bagging 基础上增加了特征的随机选择，进一步降低树之间的相关性。</p>
+
+          <div class="knowledge-list">
+            <h3>双重随机性</h3>
+            <ul>
+              <li><strong>样本随机：</strong>每个树用 Bootstrap 采样的不同训练集训练</li>
+              <li><strong>特征随机：</strong>每个节点分裂时，只从随机选取的 k 个特征中选择最优分裂特征</li>
+            </ul>
+          </div>
+
+          <div class="formula-block">
+            建议 k = log₂(d)（分类）&nbsp;&nbsp;或&nbsp;&nbsp;k = d/3（回归）<br>
+            其中 d 为总特征数
+          </div>
+
+          <div class="knowledge-list">
+            <h3>优势</h3>
+            <ul>
+              <li>抗过拟合能力强（双重随机性）</li>
+              <li>可输出特征重要性排名</li>
+              <li>能处理高维数据，不需要特征选择</li>
+              <li>训练速度快，天然支持并行</li>
+            </ul>
+          </div>
+
+          <div class="code-block">
+            <span class="lang-tag">Python</span>
+            <pre><span class="kw">from</span> sklearn.ensemble <span class="kw">import</span> RandomForestClassifier
+
+model = RandomForestClassifier(n_estimators=100, max_depth=10)
+model.fit(X_train, y_train)
+<span class="cm"># 特征重要性</span>
+<span class="kw">print</span>(model.feature_importances_)</pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- AdaBoost -->
+      <div class="content-panel" id="adaboost" style="display:none">
+        <div class="content-card fade-in">
+          <h2>AdaBoost</h2>
+          <p class="intro">自适应增强——通过调整样本权重让后续学习器更关注前一个学习器分错的样本。</p>
+
+          <div class="knowledge-list">
+            <h3>算法流程</h3>
+            <ul>
+              <li>① 初始化所有样本权重相等：w<sub>i</sub> = 1/n</li>
+              <li>② 训练一个基学习器，计算其加权错误率</li>
+              <li>③ 根据错误率计算该学习器的权重 α（错误率越低权重越大）</li>
+              <li>④ 增大错分样本的权重，减小正确分类样本的权重</li>
+              <li>⑤ 重复 ②-④，最终加权投票得到强学习器</li>
+            </ul>
+          </div>
+
+          <div class="formula-block">
+            学习器权重：α = 0.5 × ln((1−ε) / ε)<br>
+            其中 ε 为加权错误率，α 衡量该学习器的"话语权"
+          </div>
+
+          <div class="knowledge-list">
+            <h3>特点</h3>
+            <ul>
+              <li><strong>优点：</strong>简单、不易过拟合、自动做特征选择</li>
+              <li><strong>缺点：</strong>对噪声和异常值敏感（会过度关注错分的噪声样本）</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- GBDT -->
+      <div class="content-panel" id="gbdt" style="display:none">
+        <div class="content-card fade-in">
+          <h2>GBDT</h2>
+          <p class="intro">梯度提升决策树——不同于 AdaBoost 调整样本权重，GBDT 每步拟合的是前一步的残差（负梯度）。</p>
+
+          <div class="highlight-box">
+            <div class="label">核心思想</div>
+            <p>每一棵新树的目标不是直接预测 y，而是预测当前模型残差的负梯度方向，逐步逼近真实值。</p>
+          </div>
+
+          <div class="formula-block">
+            F<sub>m</sub>(x) = F<sub>m−1</sub>(x) + ν · h<sub>m</sub>(x)<br>
+            其中 ν 为学习率（shrinkage），h<sub>m</sub> 拟合的是残差 r = y − F<sub>m−1</sub>(x)
+          </div>
+
+          <div class="knowledge-list">
+            <h3>关键参数</h3>
+            <ul>
+              <li><strong>n_estimators：</strong>树的数量，越大越容易过拟合</li>
+              <li><strong>learning_rate（shrinkage）：</strong>每棵树的贡献缩放因子，小值需配合更多树</li>
+              <li><strong>max_depth：</strong>通常较浅（3-5），保持基学习器是弱学习器</li>
+              <li><strong>subsample：</strong>随机采样比例，<1 可以增加随机性（SGBT）</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- XGBoost -->
+      <div class="content-panel" id="xgboost" style="display:none">
+        <div class="content-card fade-in">
+          <h2>XGBoost</h2>
+          <p class="intro">GBDT 的工程优化版——在算法层面和系统层面都做了大量优化，Kaggle 竞赛中的常胜将军。</p>
+
+          <div class="knowledge-list">
+            <h3>相比 GBDT 的改进</h3>
+            <ul>
+              <li><strong>二阶泰勒展开：</strong>利用二阶导数信息，收敛更精确</li>
+              <li><strong>显式正则项：</strong>目标函数中加入叶子节点数和 L2 正则项</li>
+              <li><strong>列抽样（Column Subsampling）：</strong>类似随机森林，减少过拟合</li>
+              <li><strong>Shrinkage：</strong>缩减每棵树的贡献，防止过拟合</li>
+              <li><strong>缺失值处理：</strong>自动学习缺失值的分裂方向</li>
+              <li><strong>系统优化：</strong>并行化、缓存优化、稀疏感知、分位点近似分割</li>
+            </ul>
+          </div>
+
+          <div class="code-block">
+            <span class="lang-tag">Python</span>
+            <pre><span class="kw">from</span> xgboost <span class="kw">import</span> XGBClassifier
+
+model = XGBClassifier(
+    n_estimators=100, learning_rate=0.1, max_depth=5,
+    subsample=0.8, colsample_bytree=0.8
+)
+model.fit(X_train, y_train, eval_set=[(X_test, y_test)])</pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stacking -->
+      <div class="content-panel" id="stacking" style="display:none">
+        <div class="content-card fade-in">
+          <h2>Stacking</h2>
+          <p class="intro">堆叠泛化——用元学习器（Meta-Learner）来学习如何最优组合多个一级学习器的预测结果。</p>
+
+          <div class="knowledge-list">
+            <h3>两层架构</h3>
+            <ul>
+              <li><strong>第一层（基学习器）：</strong>多个不同类型的模型（如 SVM、RF、XGBoost），产生各自的预测结果</li>
+              <li><strong>第二层（元学习器）：</strong>以第一层模型的输出作为特征，学习最优组合方式</li>
+              <li><strong>关键技巧：</strong>使用交叉验证避免数据泄露（用验证集的预测来训练元学习器）</li>
+            </ul>
+          </div>
+
+          <div class="code-block">
+            <span class="lang-tag">Python</span>
+            <pre><span class="kw">from</span> sklearn.ensemble <span class="kw">import</span> StackingClassifier
+<span class="kw">from</span> sklearn.linear_model <span class="kw">import</span> LogisticRegression
+
+base_models = [
+    (<span class="str">'rf'</span>, RandomForestClassifier()),
+    (<span class="str">'svm'</span>, SVC(probability=<span class="kw">True</span>)),
+    (<span class="str">'xgb'</span>, XGBClassifier()),
+]
+model = StackingClassifier(
+    estimators=base_models,
+    final_estimator=LogisticRegression(),
+    cv=5
+)
+model.fit(X_train, y_train)</pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- 深度学习 — 感知机 -->
+      <div class="content-panel" id="perceptron" style="display:none">
+        <div class="content-card fade-in">
+          <h2>感知机</h2>
+          <p class="intro">神经网络的起源——最基础的二分类线性模型，是理解深度学习的起点。</p>
+
+          <div class="formula-block">
+            y = sign(w·x + b) = sign(∑ w<sub>i</sub>x<sub>i</sub> + b)<br>
+            输入加权求和后经过阶跃激活函数输出 ±1
+          </div>
+
+          <div class="knowledge-list">
+            <h3>核心要点</h3>
+            <ul>
+              <li><strong>学习规则：</strong>w ← w + η · y<sub>true</sub> · x（仅在分类错误时更新）</li>
+              <li><strong>局限性：</strong>只能解决线性可分问题，连 XOR 都无法解决（由此导致了第一次 AI 寒冬）</li>
+              <li><strong>历史意义：</strong>感知机的局限性催生了多层网络（MLP）</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- MLP -->
+      <div class="content-panel" id="mlp" style="display:none">
+        <div class="content-card fade-in">
+          <h2>多层感知机 MLP</h2>
+          <p class="intro">在输入和输出之间增加隐藏层，并使用非线性激活函数，从而能够拟合任意复杂函数。</p>
+
+          <div class="knowledge-list">
+            <h3>关键组件</h3>
+            <ul>
+              <li><strong>前向传播：</strong>逐层计算 a<sup>(l+1)</sup> = σ(W<sup>(l)</sup>a<sup>(l)</sup> + b<sup>(l)</sup>)</li>
+              <li><strong>反向传播（Backpropagation）：</strong>通过链式法则逐层计算梯度</li>
+              <li><strong>激活函数：</strong>ReLU（主流）、Sigmoid、Tanh、LeakyReLU</li>
+              <li><strong>万能逼近定理：</strong>一个具有足够神经元和适当激活函数的单隐藏层就可以逼近任意连续函数</li>
+            </ul>
+          </div>
+
+          <div class="formula-block">
+            ReLU(x) = max(0, x) &nbsp;&nbsp;|&nbsp;&nbsp; Sigmoid(x) = 1/(1+e<sup>−x</sup>)<br>
+            反向传播核心链式法则：∂L/∂w = ∂L/∂a · ∂a/∂z · ∂z/∂w
+          </div>
+
+          <table class="compare-table">
+            <thead><tr><th>激活函数</th><th>值域</th><th>导数范围</th><th>适用场景</th><th>注意事项</th></tr></thead>
+            <tbody>
+              <tr><td>Sigmoid</td><td>(0, 1)</td><td>(0, 0.25]</td><td>二分类输出层、浅隐藏层</td><td>非0中心化，梯度消失严重</td></tr>
+              <tr><td>Tanh</td><td>(-1, 1)</td><td>(0, 1]</td><td>浅隐藏层</td><td>0 中心化，梯度消失有所缓解</td></tr>
+              <tr><td>ReLU</td><td>[0, +∞)</td><td>0 或 1</td><td>深隐藏层（主流）</td><td>负样本直接忽略，缓解过拟合</td></tr>
+              <tr><td>Softmax</td><td>概率和=1</td><td>—</td><td>多分类输出层</td><td>所有输出概率总和为 1</td></tr>
+            </tbody>
+          </table>
+
+          <div class="highlight-box">
+            <div class="label">激活函数选择口诀</div>
+            <p>浅隐藏层 Tanh · 深隐藏层 ReLU · 二分类输出 Sigmoid · 多分类输出 Softmax</p>
+          </div>
+
+          <div class="knowledge-list">
+            <h3>参数初始化方法</h3>
+            <ul>
+              <li><strong>均匀/正态随机初始化：</strong><span class="api-tag">uniform_()</span><span class="api-tag">normal_()</span> 基础方法</li>
+              <li><strong>Kaiming/He 初始化：</strong><span class="api-tag">kaiming_uniform_()</span> 只考虑输入节点，适用于 ReLU 及其变体</li>
+              <li><strong>Xavier 初始化：</strong><span class="api-tag">xavier_uniform_()</span> 同时考虑输入和输出，适用于 Sigmoid/Tanh</li>
+            </ul>
+          </div>
+
+          <div class="knowledge-list">
+            <h3>五大损失函数</h3>
+            <ul>
+              <li><strong>多分类交叉熵：</strong><span class="api-tag">nn.CrossEntropyLoss()</span> 底层自动 Softmax + 损失计算</li>
+              <li><strong>二分类交叉熵：</strong><span class="api-tag">nn.BCELoss()</span> 需先手动 sigmoid 转概率</li>
+              <li><strong>MSE 均方误差：</strong><span class="api-tag">nn.MSELoss()</span> 对异常值敏感，放大误差，用于回归</li>
+              <li><strong>MAE 平均绝对误差：</strong><span class="api-tag">nn.L1Loss()</span> 对异常值鲁棒，用于回归</li>
+              <li><strong>Smooth L1：</strong><span class="api-tag">nn.SmoothL1Loss()</span> MSE 和 MAE 的结合，[-1,1] 内平缓，之外线性</li>
+            </ul>
+          </div>
+
+          <div class="code-block">
+            <span class="lang-tag">PyTorch</span>
+            <pre><span class="kw">import</span> torch.nn <span class="kw">as</span> nn
+
+<span class="cm"># 定义神经网络（1继承 + 2重写）</span>
+<span class="kw">class</span> MyNet(nn.Module):
+    <span class="kw">def</span> __init__(self):
+        <span class="kw">super</span>().__init__()  <span class="cm"># 必须调用父类 init</span>
+        self.fc1 = nn.Linear(784, 128)
+        self.fc2 = nn.Linear(128, 10)
+
+    <span class="kw">def</span> forward(self, x):
+        x = torch.relu(self.fc1(x))
+        x = self.fc2(x)  <span class="cm"># 多分类输出层不加 softmax</span>
+        <span class="kw">return</span> x
+
+model = MyNet()
+criterion = nn.CrossEntropyLoss()  <span class="cm"># 底层自动 softmax</span>
+optimizer = torch.optim.Adam(model.parameters(), lr=0.001)</pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- PyTorch 框架基础 -->
+      <div class="content-panel" id="pytorch" style="display:none">
+        <div class="content-card fade-in">
+          <h2>PyTorch 框架基础</h2>
+          <p class="intro">PyTorch 是深度学习最主流的框架——数据以张量（Tensor）形式存储，提供自动微分和丰富的神经网络模块。</p>
+
+          <div class="highlight-box">
+            <div class="label">NumPy vs Tensor 分工</div>
+            <p>NumPy 处理原始数据和结果后处理（CPU），PyTorch Tensor 负责模型训练和推理（GPU），两者通过 <code>.numpy()</code> 和 <code>torch.from_numpy()</code> 互相转换。</p>
+          </div>
+
+          <div class="knowledge-list">
+            <h3>创建张量</h3>
+            <ul>
+              <li><strong>基本创建：</strong><span class="api-tag">torch.tensor(data, dtype=)</span><span class="api-tag">torch.Tensor(data)</span></li>
+              <li><strong>线性张量：</strong><span class="api-tag">torch.arange(start, end, step)</span><span class="api-tag">torch.linspace(start, end, steps)</span></li>
+              <li><strong>随机张量：</strong><span class="api-tag">torch.rand(size)</span> 0~1均匀 · <span class="api-tag">torch.randn(size)</span> 正态分布 · <span class="api-tag">torch.randint(low, high, size)</span></li>
+              <li><strong>全0/1/指定值：</strong><span class="api-tag">torch.zeros(size)</span><span class="api-tag">torch.ones(size)</span><span class="api-tag">torch.full(size, value)</span></li>
+            </ul>
+          </div>
+
+          <div class="knowledge-list">
+            <h3>张量类型转换（推荐方式）</h3>
+            <ul>
+              <li><strong>转整数：</strong><span class="api-tag">tensor.byte()</span><span class="api-tag">tensor.short()</span><span class="api-tag">tensor.int()</span><span class="api-tag">tensor.long()</span></li>
+              <li><strong>转浮点：</strong><span class="api-tag">tensor.half()</span><span class="api-tag">tensor.float()</span><span class="api-tag">tensor.double()</span></li>
+              <li><strong>通用转换：</strong><span class="api-tag">tensor.to(dtype)</span> 或 <span class="api-tag">tensor.type(dtype)</span></li>
+            </ul>
+          </div>
+
+          <div class="knowledge-list">
+            <h3>Tensor ↔ NumPy 互转</h3>
+            <ul>
+              <li><strong>Tensor → NumPy：</strong><span class="api-tag">tensor.numpy()</span>（共享内存）或 <span class="api-tag">tensor.numpy().copy()</span>（独立）</li>
+              <li><strong>NumPy → Tensor：</strong><span class="api-tag">torch.from_numpy(arr)</span>（共享内存）或 <span class="api-tag">torch.tensor(arr)</span>（独立）</li>
+              <li><strong>注意：</strong>开启自动微分的张量需先 <span class="api-tag">.detach()</span> 剥离后才能转 NumPy</li>
+            </ul>
+          </div>
+
+          <div class="knowledge-list">
+            <h3>自动微分（Autograd）</h3>
+            <ul>
+              <li><strong>开启求导：</strong>创建张量时设置 <span class="api-tag">requires_grad=True</span></li>
+              <li><strong>反向传播：</strong><span class="api-tag">loss.backward()</span> 自动计算梯度并存储到 .grad 属性</li>
+              <li><strong>权重更新：</strong>W<sub>new</sub> = W<sub>old</sub> − lr × W.grad</li>
+              <li><strong>梯度清零：</strong>循环训练时每次反向传播前需 <span class="api-tag">optimizer.zero_grad()</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- CNN -->
+      <div class="content-panel" id="cnn" style="display:none">
+        <div class="content-card fade-in">
+          <h2>卷积神经网络 CNN</h2>
+          <p class="intro">专门为处理网格状数据（如图像）设计的网络结构，通过局部连接和权重共享大幅减少参数量。</p>
+
+          <div class="knowledge-list">
+            <h3>图像基础</h3>
+            <ul>
+              <li><strong>图像表示：</strong>NumPy → (H, W, C) · PyTorch → (C, H, W)</li>
+              <li><strong>通道（Channel）：</strong>灰度图 1 通道、RGB 3 通道，像素值范围 [0, 255]</li>
+              <li><strong>本质：</strong>图像是 1 个或 3 个二维矩阵，矩阵的值就是像素点（特征值）</li>
+            </ul>
+          </div>
+
+          <div class="knowledge-list">
+            <h3>卷积层详解</h3>
+            <ul>
+              <li><strong>卷积核（滤波器）：</strong>带有共享参数的神经元，每个核提取一个二维特征图</li>
+              <li><strong>卷积计算：</strong>卷积核与输入区域做<strong>点乘</strong>，结果 = 新特征图的一个像素值</li>
+              <li><strong>多通道计算：</strong>RGB 3 通道分别点乘后<strong>求和</strong>，得到 1 个特征值</li>
+              <li><strong>多卷积核：</strong>N 个卷积核 → 提取 N 个不同的二维特征图</li>
+            </ul>
+          </div>
+
+          <div class="formula-block">
+            特征图尺寸：N = ⌊(W − F + 2P) / S⌋ + 1<br>
+            W=输入尺寸 · F=卷积核大小 · P=补零圈数 · S=步长
+          </div>
+
+          <div class="knowledge-list">
+            <h3>Padding 与 Stride</h3>
+            <ul>
+              <li><strong>Padding（补零）：</strong>防止边缘信息丢失（边缘像素只被计算少数次），保持特征图尺寸不变</li>
+              <li><strong>Stride（步长）：</strong>窗口每次移动的像素数，增大步长 = 降维 + 增大感受野</li>
+            </ul>
+          </div>
+
+          <div class="knowledge-list">
+            <h3>池化层（Pooling）</h3>
+            <ul>
+              <li><strong>作用：</strong>降维（只在 H、W 维度），无卷积核参与，只有池化窗口</li>
+              <li><strong>最大池化：</strong>取窗口内最大值，保留显著特征<span class="api-tag">nn.MaxPool2d(kernel_size, stride, padding)</span></li>
+              <li><strong>平均池化：</strong>取窗口内平均值，平滑特征<span class="api-tag">nn.AvgPool2d(kernel_size, stride, padding)</span></li>
+              <li><strong>多通道池化：</strong>不改变通道数，每个通道独立池化</li>
+            </ul>
+          </div>
+
+          <div class="code-block">
+            <span class="lang-tag">PyTorch</span>
+            <pre><span class="kw">import</span> torch.nn <span class="kw">as</span> nn
+
+<span class="cm"># Conv2d(输入通道, 输出通道(卷积核数), 核大小, 步长, 填充)</span>
+conv = nn.Conv2d(in_channels=3, out_channels=32, kernel_size=3, stride=1, padding=1)
+pool = nn.MaxPool2d(kernel_size=2, stride=2)
+
+model = nn.Sequential(
+    nn.Conv2d(3, 32, kernel_size=3, padding=1),
+    nn.ReLU(),
+    nn.MaxPool2d(2),          <span class="cm"># 尺寸减半</span>
+    nn.Conv2d(32, 64, kernel_size=3, padding=1),
+    nn.ReLU(),
+    nn.MaxPool2d(2),
+    nn.Flatten(),
+    nn.Linear(64*8*8, 10)
+)</pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- RNN/LSTM -->
+      <div class="content-panel" id="rnn-lstm" style="display:none">
+        <div class="content-card fade-in">
+          <h2>RNN / LSTM</h2>
+          <p class="intro">循环神经网络专为序列数据设计——当前输出不仅依赖当前输入，还依赖之前的"记忆"。</p>
+
+          <div class="knowledge-list">
+            <h3>RNN 的问题</h3>
+            <ul>
+              <li><strong>梯度消失：</strong>长序列中早期时间步的梯度趋于零，难以学习长距离依赖</li>
+              <li><strong>梯度爆炸：</strong>梯度指数增长，导致训练不稳定（可用梯度裁剪解决）</li>
+            </ul>
+          </div>
+
+          <div class="knowledge-list">
+            <h3>LSTM 的解决方案：门控机制</h3>
+            <ul>
+              <li><strong>遗忘门（Forget Gate）：</strong>决定丢弃哪些旧信息</li>
+              <li><strong>输入门（Input Gate）：</strong>决定存储哪些新信息</li>
+              <li><strong>输出门（Output Gate）：</strong>决定输出哪些信息</li>
+              <li><strong>细胞状态（Cell State）：</strong>贯穿整个序列的"高速公路"，梯度可以无损传播</li>
+            </ul>
+          </div>
+
+          <div class="knowledge-list">
+            <h3>词嵌入层（Embedding）</h3>
+            <ul>
+              <li><strong>作用：</strong>将词用低维稠密向量表示，保留上下文语义，输入到 RNN 层</li>
+              <li><strong>流程：</strong>文本 → jieba 分词 → 词 → 下标 → 向量</li>
+              <li><strong>API：</strong><span class="api-tag">nn.Embedding(num_embeddings, embedding_dim)</span></li>
+              <li><strong>num_embeddings：</strong>词汇表大小 · <strong>embedding_dim：</strong>每个词的向量维度</li>
+            </ul>
+          </div>
+
+          <div class="knowledge-list">
+            <h3>RNN 层 API</h3>
+            <ul>
+              <li><strong>创建：</strong><span class="api-tag">rnn = nn.RNN(input_size, hidden_size, num_layers)</span></li>
+              <li><strong>input_size：</strong>输入特征维度（一般设为词向量维度）</li>
+              <li><strong>hidden_size：</strong>隐藏层 h 的维度，也是当前层神经元的输出维度</li>
+              <li><strong>调用：</strong><span class="api-tag">output, h_t = rnn(x, h_{t-1})</span>— x 和 output 形状为 (序列长度, batch, 词向量维度)</li>
+            </ul>
+          </div>
+
+          <div class="highlight-box">
+            <div class="label">应用场景</div>
+            <p>文本生成、机器翻译、语音识别、时间序列预测等一切序列相关任务。不过在 NLP 领域已逐渐被 Transformer 取代。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Transformer -->
+      <div class="content-panel" id="transformer" style="display:none">
+        <div class="content-card fade-in">
+          <h2>Transformer</h2>
+          <p class="intro">2017年提出的革命性架构，用自注意力机制取代循环结构，成为当前大模型（GPT、BERT 等）的基石。</p>
+
+          <div class="highlight-box">
+            <div class="label">核心突破</div>
+            <p>自注意力机制（Self-Attention）让每个位置都能直接关注序列中的任意位置，解决了 RNN 的长距离依赖问题，同时支持并行训练。</p>
+          </div>
+
+          <div class="knowledge-list">
+            <h3>核心组件</h3>
+            <ul>
+              <li><strong>自注意力（Self-Attention）：</strong>Q（查询）、K（键）、V（值）三矩阵计算注意力权重</li>
+              <li><strong>多头注意力（Multi-Head Attention）：</strong>并行运行多组注意力，捕捉不同类型的关系</li>
+              <li><strong>位置编码（Positional Encoding）：</strong>为模型注入序列顺序信息</li>
+              <li><strong>前馈网络（FFN）：</strong>每个位置独立应用的全连接层</li>
+              <li><strong>残差连接 + LayerNorm：</strong>稳定深层网络训练</li>
+            </ul>
+          </div>
+
+          <div class="formula-block">
+            Attention(Q,K,V) = softmax(QKᵀ / √d<sub>k</sub>) · V<br>
+            缩放因子 √d<sub>k</sub> 防止点积过大导致 Softmax 梯度消失
+          </div>
+
+          <div class="knowledge-list">
+            <h3>经典变体</h3>
+            <ul>
+              <li><strong>BERT：</strong>仅用 Encoder，双向理解 → 分类/理解任务</li>
+              <li><strong>GPT：</strong>仅用 Decoder，自回归生成 → 文本生成任务</li>
+              <li><strong>ViT：</strong>将图像分割为 Patch 序列，用 Transformer 处理视觉任务</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- 评估指标 -->
+      <div class="content-panel" id="metrics" style="display:none">
+        <div class="content-card fade-in">
+          <h2>评估指标</h2>
+          <p class="intro">选择合适的评估指标是模型开发的关键——不同场景有不同的侧重点。</p>
+
+          <table class="compare-table">
+            <thead><tr><th>指标</th><th>公式</th><th>适用场景</th></tr></thead>
+            <tbody>
+              <tr><td>准确率</td><td>(TP+TN)/(TP+TN+FP+FN)</td><td>类别平衡场景</td></tr>
+              <tr><td>精确率</td><td>TP/(TP+FP)</td><td>关注误报（垃圾邮件 → 不能误判正常邮件）</td></tr>
+              <tr><td>召回率</td><td>TP/(TP+FN)</td><td>关注漏报（癌症筛查 → 不能漏诊）</td></tr>
+              <tr><td>F1-Score</td><td>2×P×R/(P+R)</td><td>精确率与召回率的调和平均</td></tr>
+              <tr><td>AUC-ROC</td><td>ROC 曲线下面积</td><td>综合评估分类器排序能力</td></tr>
+            </tbody>
+          </table>
+
+          <div class="knowledge-list">
+            <h3>混淆矩阵</h3>
+            <ul>
+              <li><strong>TP（True Positive）：</strong>正类预测为正类 ✓</li>
+              <li><strong>FP（False Positive）：</strong>负类预测为正类 ✗（误报/假阳性）</li>
+              <li><strong>FN（False Negative）：</strong>正类预测为负类 ✗（漏报/假阴性）</li>
+              <li><strong>TN（True Negative）：</strong>负类预测为负类 ✓</li>
+            </ul>
+          </div>
+
+          <div class="knowledge-list">
+            <h3>回归指标</h3>
+            <ul>
+              <li><strong>MSE（均方误差）：</strong>对异常值敏感（平方放大误差），任意位置都可导但 loss 越大梯度越大，易梯度爆炸</li>
+              <li><strong>MAE（平均绝对误差）：</strong>对异常值鲁棒（线性误差），导数 ±1 或 0 点不可导，不容易梯度爆炸但可能跳过极小值</li>
+              <li><strong>R²（决定系数）：</strong>模型解释的方差比例，越接近 1 越好</li>
+            </ul>
+          </div>
+
+          <div class="code-block">
+            <span class="lang-tag">Python</span>
+            <pre><span class="kw">from</span> sklearn.metrics <span class="kw">import</span> (accuracy_score, precision_score,
+    recall_score, f1_score, confusion_matrix, classification_report)
+
+<span class="cm"># 先预测再评估</span>
+y_pred = model.predict(X_test)
+<span class="kw">print</span>(<span class="str">'准确率:'</span>, accuracy_score(y_test, y_pred))
+<span class="kw">print</span>(<span class="str">'精确率:'</span>, precision_score(y_test, y_pred, pos_label=4))
+<span class="kw">print</span>(<span class="str">'召回率:'</span>, recall_score(y_test, y_pred, pos_label=4))
+<span class="kw">print</span>(<span class="str">'F1:'</span>, f1_score(y_test, y_pred, pos_label=4))
+<span class="kw">print</span>(<span class="str">'混淆矩阵:\n'</span>, confusion_matrix(y_test, y_pred))
+<span class="kw">print</span>(<span class="str">'分类报告:\n'</span>, classification_report(y_test, y_pred))</pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- 交叉验证 -->
+      <div class="content-panel" id="cross-validation" style="display:none">
+        <div class="content-card fade-in">
+          <h2>交叉验证</h2>
+          <p class="intro">交叉验证是评估模型泛化能力的黄金标准——充分利用有限的数据进行可靠的评估。</p>
+
+          <div class="knowledge-list">
+            <h3>常用方法</h3>
+            <ul>
+              <li><strong>K 折交叉验证：</strong>将数据分为 K 份，每次用 1 份验证、K-1 份训练，重复 K 次取平均</li>
+              <li><strong>留一交叉验证（LOOCV）：</strong>K=n 的特殊情况，最充分利用数据但计算量大</li>
+              <li><strong>分层 K 折：</strong>每折保持类别比例，适用于不平衡数据</li>
+              <li><strong>时间序列 CV：</strong>按时间顺序划分，保证训练数据都在测试数据之前</li>
+            </ul>
+          </div>
+
+          <div class="code-block">
+            <span class="lang-tag">Python</span>
+            <pre><span class="kw">from</span> sklearn.model_selection <span class="kw">import</span> cross_val_score
+
+scores = cross_val_score(model, X, y, cv=5, scoring=<span class="str">'accuracy'</span>)
+<span class="kw">print</span>(<span class="str">f'CV Mean: {scores.mean():.4f} ± {scores.std():.4f}'</span>)</pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- 超参数调优 -->
+      <div class="content-panel" id="hyperparameter" style="display:none">
+        <div class="content-card fade-in">
+          <h2>超参数调优</h2>
+          <p class="intro">超参数是模型训练前设定的参数（不像权重从数据中学习），合理的调优能显著提升模型性能。</p>
+
+          <div class="knowledge-list">
+            <h3>三种主流方法</h3>
+            <ul>
+              <li><strong>网格搜索（Grid Search）：</strong>遍历所有参数组合，全面但计算量随参数指数增长</li>
+              <li><strong>随机搜索（Random Search）：</strong>随机采样参数组合，效率更高、更易发现优质区域</li>
+              <li><strong>贝叶斯优化：</strong>利用历史评估结果指导下一次采样，效率最高。代表：Optuna、Hyperopt</li>
+            </ul>
+          </div>
+
+          <div class="code-block">
+            <span class="lang-tag">Python</span>
+            <pre><span class="kw">from</span> sklearn.model_selection <span class="kw">import</span> GridSearchCV
+
+params = {<span class="str">'n_estimators'</span>: [100, 200], <span class="str">'max_depth'</span>: [5, 10, None]}
+search = GridSearchCV(RandomForestClassifier(), params, cv=5)
+search.fit(X_train, y_train)
+<span class="kw">print</span>(search.best_params_, search.best_score_)</pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- 正则化 -->
+      <div class="content-panel" id="regularization" style="display:none">
+        <div class="content-card fade-in">
+          <h2>正则化</h2>
+          <p class="intro">正则化通过在损失函数中添加惩罚项来限制模型复杂度，是防止过拟合的核心手段。</p>
+
+          <div class="knowledge-list">
+            <h3>L1 正则化（Lasso）</h3>
+            <ul>
+              <li><strong>惩罚项：</strong>λ ∑|w<sub>i</sub>|</li>
+              <li><strong>效果：</strong>产生稀疏解——部分权重变为 0，天然做特征选择</li>
+              <li><strong>几何解释：</strong>约束区域是菱形，最优解容易落在坐标轴上</li>
+            </ul>
+          </div>
+
+          <div class="knowledge-list">
+            <h3>L2 正则化（Ridge）</h3>
+            <ul>
+              <li><strong>惩罚项：</strong>λ ∑w<sub>i</sub>²</li>
+              <li><strong>效果：</strong>权重整体缩小但不为零，分布更平滑</li>
+              <li><strong>几何解释：</strong>约束区域是圆形，最优解均匀分布</li>
+            </ul>
+          </div>
+
+          <div class="knowledge-list">
+            <h3>深度学习的正则化方法</h3>
+            <ul>
+              <li><strong>Dropout：</strong>训练时随机丢弃一部分神经元，相当于每次训练一个子网络</li>
+              <li><strong>Early Stopping：</strong>验证集误差不再下降时提前停止训练</li>
+              <li><strong>Batch Normalization：</strong>归一化每层输入，本身有一定的正则化效果</li>
+              <li><strong>Data Augmentation：</strong>通过对训练数据做变换（旋转、裁剪、加噪）增加数据多样性</li>
+            </ul>
+          </div>
+
+          <div class="formula-block">
+            L1：Loss(w) = Loss<sub>0</sub> + λ‖w‖₁<br>
+            L2：Loss(w) = Loss<sub>0</sub> + λ‖w‖₂²
+          </div>
+        </div>
+      </div>
+
+      <!-- 偏差与方差 -->
+      <div class="content-panel" id="bias-variance" style="display:none">
+        <div class="content-card fade-in">
+          <h2>偏差与方差</h2>
+          <p class="intro">偏差-方差权衡是理解模型泛化性能的核心框架——所有模型的误差都可分解为偏差、方差和噪声。</p>
+
+          <div class="formula-block">
+            E<sub>total</sub> = Bias² + Variance + Noise<br>
+            泛化误差 = 偏差²（模型平均预测与真实值的差距）+ 方差（模型预测的波动程度）+ 不可约误差（噪声）
+          </div>
+
+          <table class="compare-table">
+            <thead><tr><th>问题</th><th>表现</th><th>原因</th><th>解决方案</th></tr></thead>
+            <tbody>
+              <tr><td>高偏差（欠拟合）</td><td>训练误差高、测试误差高</td><td>模型太简单</td><td>增加模型复杂度、增加特征、减少正则化</td></tr>
+              <tr><td>高方差（过拟合）</td><td>训练误差低、测试误差高</td><td>模型太复杂</td><td>增加数据、增加正则化、降低模型复杂度</td></tr>
+            </tbody>
+          </table>
+
+          <div class="highlight-box">
+            <div class="label">直觉理解</div>
+            <p><strong>偏差</strong> → 瞄准是否准确；<strong>方差</strong> → 多次射击的一致性。好的模型需要既瞄得准（低偏差）又打得好（低方差）。</p>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

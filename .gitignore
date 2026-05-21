@@ -1,0 +1,12 @@
+# XMind 临时文件
+*.xmind~
+*.xmind.tmp
+
+# 系统文件
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
