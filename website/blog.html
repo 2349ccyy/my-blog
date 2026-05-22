@@ -41,6 +41,28 @@
     <!-- 格式参考下方已有条目 -->
     <!-- ============================================ -->
 
+    <!-- 5.22 -->
+    <div class="blog-entry fade-in">
+      <div class="blog-date-dot"></div>
+      <div class="blog-date">2026年5月22日</div>
+      <div class="blog-card">
+        <h2>FastText 工具包</h2>
+        <p><strong>FastText</strong> 是 Facebook 开源的自然语言处理工具包，核心设计理念是在保持较高精度的前提下，实现<strong>极快的训练和预测速度</strong>。主要解决两大问题：<strong>词向量训练</strong>和<strong>文本分类</strong>（二分类/单标签多分类/多标签多分类）。</p>
+        <p><strong>两大加速技术</strong>：① <strong>层次 Softmax</strong>——使用<strong>哈夫曼树</strong>组织类别，将复杂的多分类问题转化为一系列二分类问题，利用哈夫曼编码（左分支 0、右分支 1）表示从根节点到叶子节点的路径，通过极大似然估计计算概率并更新参数；② <strong>负采样</strong>——训练词向量时只更新正样本和随机采样的少量负样本的权重，无需更新整个巨大的权重矩阵，大幅降低计算量。</p>
+        <p>虽然模型结构简单，但通过 <strong>n-gram 特征</strong>弥补了无法捕捉词序的问题，让模型理解局部词语顺序，显著提升分类精度。</p>
+        <p><strong>项目实战流程</strong>：① <strong>数据准备</strong>——格式化数据，标签前缀为 <code class="api-inline">__label__</code>；② <strong>模型训练</strong>——API 为 <code class="api-inline">fasttext.train_supervised</code>；③ <strong>模型调优</strong>——调整训练轮数、学习率、n-gram、损失函数，支持自动调参；④ <strong>评估与预测</strong>——<code class="api-inline">model.test</code> 评估准确率，<code class="api-inline">model.predict</code> 进行预测；⑤ <strong>模型保存与加载</strong>——<code class="api-inline">save_model</code> / <code class="api-inline">load_model</code>。</p>
+        <div class="blog-tags">
+          <span class="blog-tag">FastText</span>
+          <span class="blog-tag">词向量</span>
+          <span class="blog-tag">文本分类</span>
+          <span class="blog-tag">层次Softmax</span>
+          <span class="blog-tag">哈夫曼树</span>
+          <span class="blog-tag">负采样</span>
+          <span class="blog-tag">n-gram</span>
+        </div>
+      </div>
+    </div>
+
     <!-- 5.21 -->
     <div class="blog-entry fade-in">
       <div class="blog-date-dot"></div>
