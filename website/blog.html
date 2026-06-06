@@ -41,6 +41,93 @@
     <!-- 格式参考下方已有条目 -->
     <!-- ============================================ -->
 
+    <!-- 6.4 -->
+    <div class="blog-entry fade-in">
+      <div class="blog-date-dot"></div>
+      <div class="blog-date">2026年6月4日</div>
+      <div class="blog-card">
+        <h2>模型压缩技术：量化 · 蒸馏 · 剪枝 · 低秩分解</h2>
+        <p><strong>模型压缩</strong>是指在模型性能影响不大的前提下，减少参数量和存储空间，提升推理效率。四大主流技术：<strong>剪枝</strong>、<strong>量化</strong>、<strong>知识蒸馏</strong>和<strong>低秩因式分解</strong>。</p>
+        <p><strong>剪枝</strong>：通过移除不重要的连接或神经元减少模型规模，但需要微调恢复精度。<strong>量化</strong>：将权重和激活从浮点数（FP32）转换为低精度整数（如 INT8），显著提升推理速度且硬件支持广泛。分为三种：<strong>动态量化</strong>（推理时计算激活参数，无需校准，适合 NLP 模型）、<strong>静态量化</strong>（校准集离线确定参数，推理无额外开销，适合 CV 模型）、<strong>量化感知训练（QAT）</strong>（训练中模拟量化误差，精度最高但训练成本大）。<strong>低秩因式分解</strong>：通过矩阵分解识别深度神经网络的冗余参数。</p>
+        <p><strong>知识蒸馏</strong>：通过教师模型指导学生模型学习。教师模型输出的<strong>软标签</strong>经温度参数 T 软化后包含类别间的相似性信息，学生模型通过 <strong>KL 散度</strong>同时拟合硬标签和软标签，在参数量远小于教师的情况下达到接近教师的精度。关键参数是温度 T 和软硬损失权重。</p>
+        <p><strong>项目实战</strong>：采用<strong>动态量化</strong>将模型从 300+MB 压缩到 100+MB，CPU 推理速度大幅提升，精度仅从 0.94 降至 0.93。</p>
+        <div class="blog-tags">
+          <span class="blog-tag">模型压缩</span>
+          <span class="blog-tag">量化</span>
+          <span class="blog-tag">动态量化</span>
+          <span class="blog-tag">知识蒸馏</span>
+          <span class="blog-tag">剪枝</span>
+          <span class="blog-tag">低秩分解</span>
+          <span class="blog-tag">KL散度</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5.26 -->
+    <div class="blog-entry fade-in">
+      <div class="blog-date-dot"></div>
+      <div class="blog-date">2026年5月26日</div>
+      <div class="blog-card">
+        <h2>Transformer 架构 & BERT 模型</h2>
+        <p><strong>Transformer</strong> 是 Google 2017 年提出的革命性架构，论文标题《Attention Is All You Need》，<strong>完全抛弃 RNN，仅用注意力机制</strong>。解决了 RNN 的两大痛点：不能并行计算和长序列遗忘。任意两个词可直接关联，训练速度大幅提升。</p>
+        <p><strong>整体结构四部分</strong>：<strong>输入部分</strong>——词嵌入 + 位置编码（Transformer 无循环无卷积，通过位置编码让模型感知词序）；<strong>编码器</strong>——N=6 层堆叠，每层含多头自注意力 + 前馈网络，每步有残差连接 + 层归一化；<strong>解码器</strong>——同样 N=6 层，每层含掩码多头自注意力 + 编码器注意力 + 前馈网络；<strong>输出层</strong>——线性层 + Softmax 得每个词的概率。</p>
+        <p><strong>BERT</strong>（Bidirectional Encoder Representations from Transformers）是 Google 2018 年提出，<strong>只用 Transformer 编码器，且是双向的</strong>，擅长自然语言理解。三大模块：<strong>Embedding</strong>（词嵌入 + 段落嵌入 + 位置嵌入，三者相加）、<strong>Transformer 编码器</strong>、<strong>微调模块</strong>。特殊标记：<code class="api-inline">[CLS]</code> 序列首个 token、<code class="api-inline">[SEP]</code> 分隔两句、<code class="api-inline">[PAD]</code> 填充对齐、<code class="api-inline">[MASK]</code> 掩码预训练。</p>
+        <p><strong>两大预训练任务</strong>：① <strong>MLM（掩码语言模型）</strong>——选 15% 词，其中 80% 替换为 [MASK]、10% 替换为随机 token、10% 保持不变；② <strong>NSP（下一句预测）</strong>——判断两句子是否连续。后来 RoBERTa 等研究发现 NSP 并非必要。</p>
+        <div class="blog-tags">
+          <span class="blog-tag">Transformer</span>
+          <span class="blog-tag">BERT</span>
+          <span class="blog-tag">自注意力</span>
+          <span class="blog-tag">位置编码</span>
+          <span class="blog-tag">多头注意力</span>
+          <span class="blog-tag">MLM</span>
+          <span class="blog-tag">NSP</span>
+          <span class="blog-tag">残差连接</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5.25 -->
+    <div class="blog-entry fade-in">
+      <div class="blog-date-dot"></div>
+      <div class="blog-date">2026年5月25日</div>
+      <div class="blog-card">
+        <h2>自注意力机制 · Seq2Seq</h2>
+        <p>传统 RNN 逐词串行处理，效率低且前面词易被遗忘，<strong>注意力机制</strong>可并行处理、动态聚焦关键信息，解决长序列问题。核心思想：动态为输入数据不同部分分配权重，使模型聚焦当前任务更重要的信息。</p>
+        <p><strong>注意力机制核心——QKV</strong>：<strong>Q（Query）</strong>查询的问题、<strong>K（Key）</strong>关键字、<strong>V（Value）</strong>详细内容。工作流程：① 计算 Q 与每个 K 的相似度得注意力权重 → ② 分数转为概率分布（Softmax）→ ③ 用权重对 V 加权求和，得到增强后的查询表示。</p>
+        <p><strong>Seq2Seq</strong> 是处理输入输出均为变长序列的框架（如机器翻译），底层仍用 RNN/LSTM/GRU。结构：<strong>编码器</strong> → <strong>中间语义张量 C</strong> → <strong>解码器</strong>。传统 Seq2Seq 将整个输入压缩为一个固定向量 C，长句子易丢失信息。<strong>加入注意力后</strong>，解码器每一步动态回看输入序列不同部分，而非仅依赖固定 C。在 Seq2Seq 中：Q 随新预测结果不断变强、K 是上一隐藏状态、V 是中间语义向量 C。</p>
+        <div class="blog-tags">
+          <span class="blog-tag">注意力机制</span>
+          <span class="blog-tag">QKV</span>
+          <span class="blog-tag">Seq2Seq</span>
+          <span class="blog-tag">编码器-解码器</span>
+          <span class="blog-tag">Softmax</span>
+          <span class="blog-tag">自注意力</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5.23 -->
+    <div class="blog-entry fade-in">
+      <div class="blog-date-dot"></div>
+      <div class="blog-date">2026年5月23日</div>
+      <div class="blog-card">
+        <h2>RNN · LSTM · GRU 循环神经网络</h2>
+        <p>循环神经网络（RNN）及其变体 LSTM、GRU 是专门处理<strong>序列数据</strong>的深度学习模型，让计算机拥有"记忆"，能够理解文字、语音等具有时间顺序的信息。</p>
+        <p><strong>RNN</strong> 的核心特点是"循环"：当前时刻的输出会作为下一时刻输入的一部分。按输入输出长度分为四类：<strong>N vs N</strong>（输入输出等长，如写诗）、<strong>N vs 1</strong>（输入序列输出单结果，如情感分类）、<strong>1 vs N</strong>（输入单值输出序列，如图说说话）、<strong>N vs M</strong>（输入输出不等长，如机器翻译）。每一步将上一时刻隐藏状态 h<sub>t−1</sub> 和当前输入 x<sub>t</sub> 拼接，通过 <strong>tanh</strong> 激活函数生成新状态 h<sub>t</sub>，旧记忆被完全覆盖。优点是结构简单、计算快、适合短序列；缺点是长序列容易遗忘、容易梯度消失或爆炸。</p>
+        <p><strong>LSTM</strong>（长短期记忆网络）是 RNN 的改进版，通过<strong>门控机制</strong>控制信息流动：<strong>遗忘门</strong>决定忘记多少过去信息，<strong>输入门</strong>决定记住多少当前信息，<strong>细胞状态更新</strong>是缓解梯度消失的核心，<strong>输出门</strong>决定输出多少当前记忆。优点是能处理长序列、缓解梯度消失；缺点是结构复杂、训练慢。</p>
+        <p><strong>GRU</strong>（门控循环单元）是 LSTM 的简化版，将三个门合并为两个：<strong>更新门</strong>决定是否用当前信息替换旧信息，<strong>重置门</strong>决定是否忽略过去信息，将细胞状态和隐藏状态合二为一。在保持 LSTM 强大记忆能力的同时计算更快、参数更少。三者在 PyTorch 中的 API 分别为 <code class="api-inline">nn.RNN</code>、<code class="api-inline">nn.LSTM</code>、<code class="api-inline">nn.GRU</code>，输入参数为 (seq_len, batch_size, input_size)，隐藏状态为 (num_layers, batch_size, hidden_size)，output 包含所有时间步输出而 h<sub>n</sub> 仅为最后时间步状态。</p>
+        <div class="blog-tags">
+          <span class="blog-tag">RNN</span>
+          <span class="blog-tag">LSTM</span>
+          <span class="blog-tag">GRU</span>
+          <span class="blog-tag">门控机制</span>
+          <span class="blog-tag">序列数据</span>
+          <span class="blog-tag">记忆网络</span>
+          <span class="blog-tag">隐藏状态</span>
+        </div>
+      </div>
+    </div>
+
     <!-- 5.22 -->
     <div class="blog-entry fade-in">
       <div class="blog-date-dot"></div>
@@ -332,24 +419,6 @@
       </div>
     </div>
 
-    <!-- 4.23 -->
-    <div class="blog-entry fade-in">
-      <div class="blog-date-dot"></div>
-      <div class="blog-date">2026年4月23日</div>
-      <div class="blog-card">
-        <h2>Coze AI 面试助手 · Python 调用智能体</h2>
-        <p><strong>面试题生成工作流</strong>：简历文字提取 → 内容分块（提取 skill 技能和 project_exp 项目经验）→ 检索数据库抽取最近 100 个面试题 → 循环处理（针对技能点检索知识库生成问题 / 针对项目生成问题）→ 信息整合输出最终面试题。</p>
-        <p><strong>Python 调用 Coze 智能体步骤</strong>：① <code class="api-inline">pip install cozepy</code> → ② 获取 Coze 的 API 令牌和智能体 Bot ID → ③ 初始化 Coze 客户端（填好 api_key 和 base_url，类似大模型初始化）→ ④ 上传本地简历文件到 Coze 平台获取文件 ID → ⑤ 创建包含文件 ID 和对话文本的消息列表 → ⑥ 发送流式请求并处理响应 → ⑦ 保存结果到本地。</p>
-        <div class="blog-tags">
-          <span class="blog-tag">Coze</span>
-          <span class="blog-tag">智能体</span>
-          <span class="blog-tag">工作流</span>
-          <span class="blog-tag">Python调用</span>
-          <span class="blog-tag">面试助手</span>
-        </div>
-      </div>
-    </div>
-
     <!-- 4.21 -->
     <div class="blog-entry fade-in">
       <div class="blog-date-dot"></div>
@@ -376,6 +445,7 @@
     </div>
   </footer>
 
+  <script src="js/tilt.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
