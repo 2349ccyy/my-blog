@@ -26,11 +26,84 @@
   </nav>
 
   <div class="container">
-    <div class="empty-state fade-in">
-      <div class="icon">📂</div>
-      <h2>项目案例整理中</h2>
-      <p>实战项目正在梳理沉淀中，包括波士顿房价预测、癌症分类预测等经典案例，敬请期待。</p>
+    <div class="section-header fade-in">
+      <h2>项目经验</h2>
+      <p>实战项目沉淀，持续更新中</p>
     </div>
+
+    <!-- 项目1：AI面试模拟与简历诊断助手 -->
+    <div class="project-card fade-in">
+      <div class="project-header">
+        <h2>AI面试模拟与简历诊断助手</h2>
+        <span class="project-time">2025.08 — 2025.12</span>
+      </div>
+      <div class="project-tech">
+        <span class="tag">Coze 工作流</span>
+        <span class="tag">知识库</span>
+        <span class="tag">Fun-ASR</span>
+        <span class="tag">Python</span>
+        <span class="tag">Coze API</span>
+      </div>
+      <div class="project-section">
+        <h3>项目描述</h3>
+        <p>
+          设计并搭建基于 Coze 的智能面试助手，实现<strong>简历评估</strong>、<strong>录音分析</strong>、<strong>面试题生成</strong>三大核心功能。
+        </p>
+      </div>
+      <div class="project-section">
+        <h3>项目职责</h3>
+        <ul class="project-list">
+          <li><strong>简历分析：</strong>构建 7 节点工作流，从简历中抽取姓名、技能、项目等 7 类信息，结合违禁词表与规则引擎自动生成修改建议，诊断效率提升约 60%</li>
+          <li><strong>录音分析：</strong>集成 Fun-ASR 转写语音，通过角色分配与问答对提取，循环检索知识库进行答案分级（A~D），自动输出弱项总结与正确答案</li>
+          <li><strong>面试题生成：</strong>将简历技能点拆分为 20+ 关键词，循环检索面试题库与知识库，为每人动态生成 25 题（含技术、项目深挖、人事问题），重复率低于 5%</li>
+        </ul>
+      </div>
+      <div class="project-section">
+        <h3>项目成果</h3>
+        <div class="highlight-box">
+          <p>在 30 份真实简历与 20 段模拟面试中测试，简历建议采纳率 <strong>75%</strong>，弱项识别准确率约 <strong>82%</strong>；项目获校内模拟面试活动采用，服务 <strong>200+</strong> 同学。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 项目2：餐饮评论情感分析系统 -->
+    <div class="project-card fade-in">
+      <div class="project-header">
+        <h2>餐饮门店评论方面情感分析与经营风险识别系统</h2>
+        <span class="project-time">2026.01 — 2026.07</span>
+      </div>
+      <div class="project-tech">
+        <span class="tag">BERT</span>
+        <span class="tag">MacBERT</span>
+        <span class="tag">PyTorch</span>
+        <span class="tag">Transformers</span>
+        <span class="tag">Python</span>
+      </div>
+      <div class="project-section">
+        <h3>项目描述</h3>
+        <p>
+          针对餐饮门店用户评论中同时包含菜品、服务、环境、价格、位置等多维度信息的问题，构建<strong>方面级情感分类模型</strong>，实现对 18 个经营方面的正面、中性、负面、未提及四类情感识别，并进一步聚合生成<strong>经营风险分数、风险等级、代表性负面评论证据和风险分析报告</strong>，辅助门店定位高频负面问题和整改优先级。
+        </p>
+      </div>
+      <div class="project-section">
+        <h3>项目职责</h3>
+        <ul class="project-list">
+          <li>负责餐饮评论数据集的数据处理，将原始宽表数据转换为"评论 + 方面"的长表训练样本，保留 review_id、aspect_cn、label 等字段，保证训练、评测和风险证据可追踪</li>
+          <li>完成训练集、验证集、测试集构建，针对 not_mentioned 类别占比过高的问题，分析类别分布，引入 class weight 缓解类别不平衡对模型训练的影响</li>
+          <li>基于 bert-base-chinese 和 hfl/chinese-macbert-base 进行方面级情感分类微调，采用 sentence pair 输入方式，实现 review + aspect_cn → label 四分类建模</li>
+          <li>实现模型训练、推理和评测脚本，支持 GPU 训练、训练过程日志打印、验证集进度输出、最佳模型保存，并使用 Accuracy、Macro-F1、negative Recall 等指标评估模型效果</li>
+          <li>设计经营风险聚合逻辑：按具体方面和方面大类统计情感分布，构建 risk_score = negative_rate × 0.8 + neutral_rate × 0.2 的风险评分规则，生成低/中/高/紧急风险等级</li>
+          <li>实现高风险方面的代表性评论证据提取和经营风险分析报告生成，将模型预测结果转化为业务可读的风险结论、负面证据和处理建议</li>
+        </ul>
+      </div>
+      <div class="project-section">
+        <h3>项目成果</h3>
+        <div class="highlight-box">
+          <p>完成从数据处理、模型训练、推理、评测到风险报告生成的<strong>端到端 MVP 流程</strong>；构建 <strong>66 万级方面级训练样本</strong>，支持 18 个餐饮经营方面的情感识别和风险聚合分析。模型效果以 Macro-F1、negative Recall 作为核心指标。</p>
+        </div>
+      </div>
+    </div>
+
   </div>
 
   <footer class="footer">

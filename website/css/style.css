@@ -402,6 +402,125 @@ img {
   line-height: 1.8;
 }
 
+.about-list {
+  list-style: none;
+  padding: 0;
+}
+
+.about-list li {
+  padding: 6px 0;
+  padding-left: 20px;
+  position: relative;
+  font-size: 14px;
+  color: var(--text-body);
+  line-height: 1.6;
+}
+
+.about-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 13px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+/* ---------- 项目卡片 ---------- */
+.project-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius);
+  padding: 36px;
+  margin-bottom: 32px;
+  transition: all var(--transition);
+}
+
+.project-card:hover {
+  border-color: var(--border);
+  background: var(--bg-card-hover);
+}
+
+.project-header {
+  margin-bottom: 16px;
+}
+
+.project-header h2 {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+  line-height: 1.3;
+}
+
+.project-time {
+  font-size: 14px;
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 28px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.project-section {
+  margin-bottom: 24px;
+}
+
+.project-section:last-child {
+  margin-bottom: 0;
+}
+
+.project-section h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+  padding-left: 12px;
+  border-left: 3px solid var(--accent);
+}
+
+.project-section p {
+  color: var(--text-body);
+  font-size: 14.5px;
+  line-height: 1.8;
+}
+
+.project-list {
+  list-style: none;
+  padding: 0;
+}
+
+.project-list li {
+  padding: 6px 0;
+  padding-left: 20px;
+  position: relative;
+  font-size: 14px;
+  color: var(--text-body);
+  line-height: 1.7;
+}
+
+.project-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 13px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.project-list li strong {
+  color: var(--text-primary);
+}
+
 /* ---------- 技能标签云 ---------- */
 .skills-section {
   padding: 60px 0;
