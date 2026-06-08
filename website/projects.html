@@ -31,7 +31,45 @@
       <p>实战项目沉淀，持续更新中</p>
     </div>
 
-    <!-- 项目1：AI面试模拟与简历诊断助手 -->
+    <!-- 项目1：电商售后评论分析与退款风险预测 -->
+    <div class="project-card fade-in">
+      <div class="project-header">
+        <h2>电商售后评论分析与退款风险预测</h2>
+        <span class="project-time">2026.02 — 2026.06</span>
+      </div>
+      <div class="project-tech">
+        <span class="tag">BERT</span>
+        <span class="tag">MacBERT</span>
+        <span class="tag">PyTorch</span>
+        <span class="tag">Transformers</span>
+        <span class="tag">Python</span>
+      </div>
+      <div class="project-section">
+        <h3>项目描述</h3>
+        <p>
+          面向电商售后场景，构建<strong>方面级情感分析与退款风险预测模型</strong>。售后评论通常同时包含商品质量、物流履约、客服服务、退换货体验、价格争议和退款倾向等多个风险维度，因此不采用整句二分类，而是将每条评论与不同风险方面组合为"评论 + 风险方面"的句对输入，让模型识别每个方面上的情感倾向，再聚合为<strong>退款风险分数、风险等级和可解释的证据评论</strong>。
+        </p>
+      </div>
+      <div class="project-section">
+        <h3>项目职责</h3>
+        <ul class="project-list">
+          <li><strong>数据建模：</strong>设计方面级建模方案，将售后评论拆解为商品质量、物流履约、客服服务、退换货体验、价格体验、退款倾向等 7 个风险方面，每条评论与多方面组合生成训练样本；按评论编号划分数据集，避免同一评论的不同方面泄漏到训练/测试集</li>
+          <li><strong>数据处理：</strong>完成字段校验与标签统一（正面/中性/负面/未提及），过滤空评论与异常标签，将原始评论数据转换为"评论文本 + 风险方面 → 标签"的长表训练格式，保证样本可追踪</li>
+          <li><strong>模型训练：</strong>采用句对输入方式，基于 <code>bert-base-chinese</code> 完成基线验证，确认任务可行性；再使用 <code>hfl/chinese-macbert-base</code> 作为落地模型，MacBERT 对售后评论中的口语化表达和隐含情绪理解更优</li>
+          <li><strong>类别不平衡处理：</strong>针对未提及样本占比过高、高风险样本过少的问题，根据标签分布引入 class weight，训练时加大对负面和高风险样本的惩罚权重；评测时以 Macro-F1 和高风险 Recall 为核心指标，而非仅看整体准确率</li>
+          <li><strong>风险聚合与可解释性：</strong>推理完成后按风险方面聚合预测结果，设计 risk_score = negative_rate × 0.8 + neutral_rate × 0.2 的风险评分规则，映射为低/中/高/紧急四级风险等级；对高风险方面自动提取置信度高、含明确风险关键词的评论作为证据</li>
+          <li><strong>结果输出：</strong>生成预测结果表、风险分数表、风险等级表、证据评论和风险分析报告，将文本分类结果转化为业务可读的退款风险结论</li>
+        </ul>
+      </div>
+      <div class="project-section">
+        <h3>项目成果</h3>
+        <div class="highlight-box">
+          <p>完成从数据处理、模型训练、评测到风险报告生成的<strong>端到端流程</strong>；模型不仅能判断评论是否有退款风险，还能<strong>解释风险来源</strong>（商品质量/客服/物流/退款倾向等），并通过证据评论提供可追溯的判断依据。模型效果以 Macro-F1 和高风险 Recall 为核心指标，后续可扩展为售后风险监控或客服辅助决策系统。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 项目2：AI面试模拟与简历诊断助手 -->
     <div class="project-card fade-in">
       <div class="project-header">
         <h2>AI面试模拟与简历诊断助手</h2>
@@ -62,44 +100,6 @@
         <h3>项目成果</h3>
         <div class="highlight-box">
           <p>在 30 份真实简历与 20 段模拟面试中测试，简历建议采纳率 <strong>75%</strong>，弱项识别准确率约 <strong>82%</strong>；项目获校内模拟面试活动采用，服务 <strong>200+</strong> 同学。</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- 项目2：餐饮评论情感分析系统 -->
-    <div class="project-card fade-in">
-      <div class="project-header">
-        <h2>餐饮门店评论方面情感分析与经营风险识别系统</h2>
-        <span class="project-time">2026.01 — 2026.07</span>
-      </div>
-      <div class="project-tech">
-        <span class="tag">BERT</span>
-        <span class="tag">MacBERT</span>
-        <span class="tag">PyTorch</span>
-        <span class="tag">Transformers</span>
-        <span class="tag">Python</span>
-      </div>
-      <div class="project-section">
-        <h3>项目描述</h3>
-        <p>
-          针对餐饮门店用户评论中同时包含菜品、服务、环境、价格、位置等多维度信息的问题，构建<strong>方面级情感分类模型</strong>，实现对 18 个经营方面的正面、中性、负面、未提及四类情感识别，并进一步聚合生成<strong>经营风险分数、风险等级、代表性负面评论证据和风险分析报告</strong>，辅助门店定位高频负面问题和整改优先级。
-        </p>
-      </div>
-      <div class="project-section">
-        <h3>项目职责</h3>
-        <ul class="project-list">
-          <li>负责餐饮评论数据集的数据处理，将原始宽表数据转换为"评论 + 方面"的长表训练样本，保留 review_id、aspect_cn、label 等字段，保证训练、评测和风险证据可追踪</li>
-          <li>完成训练集、验证集、测试集构建，针对 not_mentioned 类别占比过高的问题，分析类别分布，引入 class weight 缓解类别不平衡对模型训练的影响</li>
-          <li>基于 bert-base-chinese 和 hfl/chinese-macbert-base 进行方面级情感分类微调，采用 sentence pair 输入方式，实现 review + aspect_cn → label 四分类建模</li>
-          <li>实现模型训练、推理和评测脚本，支持 GPU 训练、训练过程日志打印、验证集进度输出、最佳模型保存，并使用 Accuracy、Macro-F1、negative Recall 等指标评估模型效果</li>
-          <li>设计经营风险聚合逻辑：按具体方面和方面大类统计情感分布，构建 risk_score = negative_rate × 0.8 + neutral_rate × 0.2 的风险评分规则，生成低/中/高/紧急风险等级</li>
-          <li>实现高风险方面的代表性评论证据提取和经营风险分析报告生成，将模型预测结果转化为业务可读的风险结论、负面证据和处理建议</li>
-        </ul>
-      </div>
-      <div class="project-section">
-        <h3>项目成果</h3>
-        <div class="highlight-box">
-          <p>完成从数据处理、模型训练、推理、评测到风险报告生成的<strong>端到端 MVP 流程</strong>；构建 <strong>66 万级方面级训练样本</strong>，支持 18 个餐饮经营方面的情感识别和风险聚合分析。模型效果以 Macro-F1、negative Recall 作为核心指标。</p>
         </div>
       </div>
     </div>
