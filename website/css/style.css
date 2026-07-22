@@ -31,6 +31,16 @@
   --font-mono: "SF Mono", "Fira Code", "Consolas", monospace;
 
   --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* z-index 层级系统 */
+  --z-base: 0;
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-navbar: 1000;
+  --z-overlay: 2000;
+  --z-modal: 3000;
+  --z-toast: 4000;
+  --z-cursor-glow: 5000;
 }
 
 /* ---------- Reset ---------- */
@@ -65,6 +75,31 @@ a:hover {
   color: var(--accent-light);
 }
 
+/* 键盘焦点环 — 全局可见焦点样式 */
+:focus-visible {
+  outline: 2.5px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* 跳过导航链接 — 对键盘用户可见 */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 16px;
+  background: var(--accent);
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+  font-size: 14px;
+  font-weight: 500;
+  z-index: var(--z-modal);
+  transition: top 0.2s ease;
+}
+.skip-link:focus {
+  top: 0;
+}
+
 ul, ol {
   list-style: none;
 }
@@ -92,7 +127,7 @@ img {
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border-light);
-  z-index: 1000;
+  z-index: var(--z-navbar);
   display: flex;
   align-items: center;
 }
@@ -145,8 +180,15 @@ img {
   background: none;
   border: none;
   cursor: pointer;
-  padding: 8px;
+  padding: 12px;
   color: var(--text-primary);
+  min-width: 44px;
+  min-height: 44px;
+  border-radius: var(--radius-sm);
+  transition: background var(--transition);
+}
+.nav-toggle:hover {
+  background: rgba(255,255,255,0.06);
 }
 
 .nav-toggle span {
@@ -318,8 +360,25 @@ img {
 }
 
 .entry-card .icon {
-  font-size: 32px;
+  width: 48px;
+  height: 48px;
   margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  background: rgba(79, 143, 247, 0.1);
+  transition: background var(--transition);
+}
+.entry-card:hover .icon {
+  background: rgba(79, 143, 247, 0.18);
+}
+.entry-card .icon svg {
+  width: 26px;
+  height: 26px;
+  stroke: var(--accent);
+  fill: none;
+  stroke-width: 1.8;
 }
 
 .entry-card .card-title {
@@ -344,8 +403,15 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 64px;
   color: var(--text-muted);
+  overflow: hidden;
+}
+.about-avatar svg {
+  width: 80px;
+  height: 80px;
+  stroke: var(--accent);
+  fill: none;
+  stroke-width: 1.5;
 }
 
 .about-info h1 {
@@ -877,9 +943,15 @@ img {
 }
 
 .empty-state .icon {
-  font-size: 64px;
   margin-bottom: 20px;
-  opacity: 0.4;
+  opacity: 0.5;
+}
+.empty-state .icon svg {
+  width: 64px;
+  height: 64px;
+  stroke: var(--text-muted);
+  fill: none;
+  stroke-width: 1.5;
 }
 
 .empty-state h2 {
@@ -1135,7 +1207,7 @@ img {
   height: 500px;
   border-radius: 50%;
   pointer-events: none;
-  z-index: 9998;
+  z-index: var(--z-cursor-glow);
   background: radial-gradient(circle, rgba(79, 143, 247, 0.05) 0%, transparent 70%);
   transform: translate(-50%, -50%);
   will-change: left, top;
@@ -1154,7 +1226,7 @@ img {
   left: 0;
   height: 2.5px;
   background: var(--accent-gradient);
-  z-index: 1001;
+  z-index: calc(var(--z-navbar) + 1);
   width: 0%;
 }
 
@@ -1259,6 +1331,25 @@ img {
 }
 
 /* ---------- 响应式 ---------- */
+/* 减弱动画偏好 */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+  .hero-canvas { display: none; }
+  .cursor-glow { display: none; }
+  .typing-cursor { animation: none; opacity: 1; }
+  .tag.tag-floating { animation: none; }
+  .stat-number { animation: none !important; }
+}
+
 /* 移动端隐藏鼠标依赖的效果 */
 @media (hover: none) and (pointer: coarse) {
   .cursor-glow { display: none; }

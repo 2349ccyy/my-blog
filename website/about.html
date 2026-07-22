@@ -8,6 +8,8 @@
 </head>
 <body>
 
+  <a href="#main-content" class="skip-link">跳转到主要内容</a>
+
   <nav class="navbar">
     <div class="container">
       <a href="index.html" class="nav-logo">ML Portfolio</a>
@@ -26,11 +28,11 @@
   </nav>
 
   <div class="container">
-    <section class="about-section fade-in">
-      <div class="about-avatar">👤</div>
+    <section class="about-section fade-in" id="main-content">
+      <div class="about-avatar"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></div>
       <div class="about-info">
         <h1>陈悦</h1>
-        <p class="role">NLP算法工程师</p>
+        <p class="role">AI开发工程师</p>
         <div class="meta">
           <div class="meta-item">
             <span class="label">邮箱</span>
@@ -55,24 +57,36 @@
       <h2>自我评价</h2>
       <p>
         性格开朗热情，具备良好的沟通能力和亲和力，能快速融入团队并与他人建立良好的协作关系。
-        在四年的大学学习中，保持了优秀的专业成绩，更培养了扎实的学习能力和刻苦认真的态度。
+        在四年的大学学习中，不仅保持了优秀的专业成绩（GPA 3.37/4，专业前10%），更培养了扎实的学习能力和刻苦认真的态度。
         对待工作秉持高度的责任心和敬业精神，勤奋踏实，善于在压力下解决问题，并能对任务尽职尽责、善始善终。
         具备较好的 Python 编程能力和机器学习、深度学习基础，熟悉 NLP 常见任务和项目流程。
         能够独立完成数据处理、模型训练、指标评估、badcase 分析和简单部署。
-        学习能力强，对大模型、RAG、文本理解与生成任务有持续学习和实践兴趣。
+        学习能力强，对大模型、RAG、文本理解与生成任务有持续学习和实践兴趣。积极探索并实践 Vibe Coding 前沿开发范式。
       </p>
     </section>
 
     <section class="about-bio fade-in">
       <h2>实习经历</h2>
-      <p style="font-size: 15px;">
-        <strong style="color: var(--text-primary);">NLP算法工程师</strong>
-        <span style="color: var(--text-muted); margin-left: 8px;">2025.06 — 2026.07</span>
+
+      <p style="font-size: 15px; margin-top: 20px;">
+        <strong style="color: var(--text-primary);">Agent开发实习生</strong>
+        <span style="color: var(--text-muted); margin-left: 8px;">2025.06 — 2026.06</span>
       </p>
       <ul class="about-list" style="margin-top: 12px;">
-        <li>参与文本分类/实体识别/智能问答相关项目，负责数据清洗、样本标注检查和模型训练</li>
-        <li>协助完成预训练模型微调、参数调整、指标评估和 badcase 分析</li>
-        <li>参与接口联调与模型部署测试，整理实验记录和项目文档</li>
+        <li>参与电商多智能体运营项目，负责<strong>企业知识 RAG Agent</strong> 和<strong>商品上架审核 Agent</strong> 开发</li>
+        <li>基于 LangGraph、Milvus、BGE-M3 搭建文档解析、混合检索、重排序和引用溯源的知识问答链路</li>
+        <li>使用 FastAPI、PostgreSQL、Redis 实现商品规则审核、LLM 文案改写、人工审批和发布审计流程</li>
+      </ul>
+
+      <p style="font-size: 15px; margin-top: 24px;">
+        <strong style="color: var(--text-primary);">Agent开发实习生</strong>
+        <span style="color: var(--text-muted); margin-left: 8px;">2024.06 — 2024.09</span>
+      </p>
+      <ul class="about-list" style="margin-top: 12px;">
+        <li>参与基于 Dify 工作流的<strong>智能面试助手</strong>开发，面向求职者提供简历优化、模拟面试录音分析与个性化面试题生成服务</li>
+        <li>搭建简历评估工作流，编排文件解析、信息抽取、知识库检索、条件分支和结果输出等节点，提取技能栈、项目经历等 7 类关键信息，结合规则库生成简历修改建议</li>
+        <li>集成 Fun-ASR 完成面试录音转写，通过 RAG 检索与 LLM 分析，对候选人回答进行分级（A~D）、薄弱点定位和参考答案生成</li>
+        <li>基于简历技能与项目关键词动态生成技术、项目及 HR 类面试题，通过相似度过滤降低重复题目</li>
       </ul>
     </section>
 
@@ -84,7 +98,7 @@
         <span style="color: var(--text-muted);">网络工程 · 本科 · GPA 3.37/4（专业前10%）</span>
       </p>
       <p style="margin-top: 12px; font-size: 14px; color: var(--text-muted);">
-        主修课程：高等数学、计算机网络、C语言、数据结构与算法、计算机组成原理、Web前端开发、JAVA程序设计、Python程序设计、MySQL数据库、路由与交换技术、信息安全、病毒与防火墙等
+        主修课程：高等数学、计算机网络、C语言、数据结构与算法、计算机组成原理、Web前端开发、JAVA程序设计、Python程序设计、MySQL数据库等
       </p>
       <p style="margin-top: 8px; font-size: 14px; color: var(--text-muted);">
         职务经历：班级组织委员兼文体委员、校学生会文体部干事<br>

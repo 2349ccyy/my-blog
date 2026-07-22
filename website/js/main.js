@@ -4,15 +4,21 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
   initNavigation();
   initMobileMenu();
   initFadeInAnimations();
   initTreeNavigation();
   initScrollProgress();
-  initMouseGlow();
-  initTypingEffect();
-  initCountAnimation();
-  initTagFloat();
+
+  // 仅在用户未请求减弱动画时启用动效
+  if (!prefersReduced) {
+    initMouseGlow();
+    initTypingEffect();
+    initCountAnimation();
+    initTagFloat();
+  }
 });
 
 /* ==================================================================
@@ -47,6 +53,7 @@ function initNavigation() {
     const href = link.getAttribute('href');
     if (href === currentPath || (currentPath === '' && href === 'index.html')) {
       link.classList.add('active');
+      link.setAttribute('aria-current', 'page');
     }
   });
 }
@@ -106,18 +113,33 @@ function initTreeNavigation() {
     const header = node.querySelector('.tree-node-header');
     if (!header) return;
 
-    header.addEventListener('click', (e) => {
+    // 使 tree-node-header 可通过键盘聚焦
+    header.setAttribute('tabindex', '0');
+    header.setAttribute('role', 'treeitem');
+
+    const activateNode = (e) => {
       e.stopPropagation();
 
       const children = node.querySelector('.tree-children');
       if (children && children.children.length > 0) {
         node.classList.toggle('expanded');
+        header.setAttribute('aria-expanded', node.classList.contains('expanded') ? 'true' : 'false');
       }
 
       const targetId = header.getAttribute('data-target');
       if (targetId) {
         showContentPanel(targetId);
         setActiveTreeNode(node);
+      }
+    };
+
+    header.addEventListener('click', activateNode);
+
+    // 键盘支持：Enter/Space 激活节点
+    header.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        activateNode(e);
       }
     });
   });

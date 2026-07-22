@@ -8,6 +8,8 @@
 </head>
 <body>
 
+  <a href="#main-content" class="skip-link">跳转到主要内容</a>
+
   <nav class="navbar">
     <div class="container">
       <a href="index.html" class="nav-logo">ML Portfolio</a>
@@ -26,80 +28,111 @@
   </nav>
 
   <div class="container">
-    <div class="section-header fade-in">
+    <div class="section-header fade-in" id="main-content">
       <h2>项目经验</h2>
       <p>实战项目沉淀，持续更新中</p>
     </div>
 
-    <!-- 项目1：电商售后评论分析与退款风险预测 -->
+    <!-- 项目1：电商多智能体中台 | RAG Agent 和商品上架 Agent -->
     <div class="project-card fade-in">
       <div class="project-header">
-        <h2>电商售后评论分析与退款风险预测</h2>
-        <span class="project-time">2026.02 — 2026.06</span>
+        <h2>电商多智能体中台 | RAG Agent 和商品上架 Agent</h2>
+        <span class="project-time">2025.06 — 2026.06</span>
       </div>
       <div class="project-tech">
-        <span class="tag">BERT</span>
-        <span class="tag">MacBERT</span>
-        <span class="tag">PyTorch</span>
-        <span class="tag">Transformers</span>
-        <span class="tag">Python</span>
+        <span class="tag">LangGraph</span>
+        <span class="tag">LangChain</span>
+        <span class="tag">Milvus</span>
+        <span class="tag">BGE-M3</span>
+        <span class="tag">FastAPI</span>
+        <span class="tag">PostgreSQL</span>
+        <span class="tag">Redis</span>
+        <span class="tag">Docker</span>
+        <span class="tag">LLM</span>
       </div>
       <div class="project-section">
         <h3>项目描述</h3>
         <p>
-          面向电商售后场景，构建<strong>方面级情感分析与退款风险预测模型</strong>。售后评论通常同时包含商品质量、物流履约、客服服务、退换货体验、价格争议和退款倾向等多个风险维度，因此不采用整句二分类，而是将每条评论与不同风险方面组合为"评论 + 风险方面"的句对输入，让模型识别每个方面上的情感倾向，再聚合为<strong>退款风险分数、风险等级和可解释的证据评论</strong>。
+          面向电商企业的商品运营与客服协作场景，构建基于 LangGraph 的<strong>多智能体运营中台</strong>，覆盖企业知识问答、商品上架审核、经营数据分析、售前转化和售后履约等业务能力。我主要参与<strong>企业知识 RAG Agent</strong> 与<strong>商品上架审核 Agent</strong> 的设计和开发。
         </p>
       </div>
       <div class="project-section">
         <h3>项目职责</h3>
         <ul class="project-list">
-          <li><strong>数据建模：</strong>设计方面级建模方案，将售后评论拆解为商品质量、物流履约、客服服务、退换货体验、价格体验、退款倾向等 7 个风险方面，每条评论与多方面组合生成训练样本；按评论编号划分数据集，避免同一评论的不同方面泄漏到训练/测试集</li>
-          <li><strong>数据处理：</strong>完成字段校验与标签统一（正面/中性/负面/未提及），过滤空评论与异常标签，将原始评论数据转换为"评论文本 + 风险方面 → 标签"的长表训练格式，保证样本可追踪</li>
-          <li><strong>模型训练：</strong>采用句对输入方式，基于 <code>bert-base-chinese</code> 完成基线验证，确认任务可行性；再使用 <code>hfl/chinese-macbert-base</code> 作为落地模型，MacBERT 对售后评论中的口语化表达和隐含情绪理解更优</li>
-          <li><strong>类别不平衡处理：</strong>针对未提及样本占比过高、高风险样本过少的问题，根据标签分布引入 class weight，训练时加大对负面和高风险样本的惩罚权重；评测时以 Macro-F1 和高风险 Recall 为核心指标，而非仅看整体准确率</li>
-          <li><strong>风险聚合与可解释性：</strong>推理完成后按风险方面聚合预测结果，设计 risk_score = negative_rate × 0.8 + neutral_rate × 0.2 的风险评分规则，映射为低/中/高/紧急四级风险等级；对高风险方面自动提取置信度高、含明确风险关键词的评论作为证据</li>
-          <li><strong>结果输出：</strong>生成预测结果表、风险分数表、风险等级表、证据评论和风险分析报告，将文本分类结果转化为业务可读的退款风险结论</li>
+          <li><strong>智能问题路由：</strong>使用 LangGraph 编排，设计规则、MiniLM 和 LLM 三级问题分类，实现企业知识 RAG Agent 的离线建库与在线检索链路，支持 PDF、Word、Markdown、Excel 等企业资料解析</li>
+          <li><strong>混合检索 + 精排：</strong>基于 BGE-M3 生成 Dense 稠密向量和 Sparse 稀疏关键词向量，写入 Milvus Collection；在线查询时通过 Milvus Hybrid Search 分别执行语义召回和关键词召回，使用 WeightedRanker 融合结果，并结合 BGE-Reranker CrossEncoder 精排，提升检索准确率</li>
+          <li><strong>商品上架审核 Agent：</strong>使用规则引擎完成必填属性、标题长度、禁限售词、资质有效期、类目依赖、图片尺寸和 OCR 文本等确定性检查；结合 LLM 识别夸大宣传、语义矛盾和类目适配风险，并生成字段级 JSON Patch 改写建议</li>
+          <li><strong>审核状态机与人工闭环：</strong>设计商品审核状态机和人工审核闭环——商品素材经标准化、规则匹配、硬规则检查、图片检查、语义审查、风险聚合和报告生成后进入人工审核；高风险商品强制阻断发布，发布前再次校验商品版本、规则版本、审批有效期</li>
         </ul>
       </div>
       <div class="project-section">
         <h3>项目成果</h3>
         <div class="highlight-box">
-          <p>完成从数据处理、模型训练、评测到风险报告生成的<strong>端到端流程</strong>；模型不仅能判断评论是否有退款风险，还能<strong>解释风险来源</strong>（商品质量/客服/物流/退款倾向等），并通过证据评论提供可追溯的判断依据。模型效果以 Macro-F1 和高风险 Recall 为核心指标，后续可扩展为售后风险监控或客服辅助决策系统。</p>
+          <p><strong>RAG 侧：</strong>离线评测集 Recall@5 ≥ 90%、引用正确率 ≥ 95%、高风险问题拦截率 100%、无依据问题拒答正确率 ≥ 95%，P95 响应时延 ≤ 8 秒。</p>
+          <p><strong>商品审核侧：</strong>硬规则召回率 ≥ 95%、高风险误放行数为 0、审核报告 P95 生成时延 ≤ 3 分钟、审核记录可追溯率和发布幂等率均达 100%，商品从素材齐备到人工审核结束的平均周期较原人工流程<strong>缩短 40% 以上</strong>。</p>
         </div>
       </div>
     </div>
 
-    <!-- 项目2：AI面试模拟与简历诊断助手 -->
+    <!-- 项目2：基于 Dify 工作流智能面试助手 -->
     <div class="project-card fade-in">
       <div class="project-header">
-        <h2>AI面试模拟与简历诊断助手</h2>
-        <span class="project-time">2025.08 — 2025.12</span>
+        <h2>基于 Dify 工作流智能面试助手</h2>
+        <span class="project-time">2024.06 — 2024.09</span>
       </div>
       <div class="project-tech">
-        <span class="tag">Coze 工作流</span>
-        <span class="tag">知识库</span>
+        <span class="tag">Dify</span>
+        <span class="tag">Dify Workflow</span>
         <span class="tag">Fun-ASR</span>
+        <span class="tag">RAGflow</span>
         <span class="tag">Python</span>
-        <span class="tag">Coze API</span>
+        <span class="tag">提示词工程</span>
+        <span class="tag">LLM</span>
       </div>
       <div class="project-section">
         <h3>项目描述</h3>
         <p>
-          设计并搭建基于 Coze 的智能面试助手，实现<strong>简历评估</strong>、<strong>录音分析</strong>、<strong>面试题生成</strong>三大核心功能。
+          面向求职者模拟面试与简历优化场景，构建基于 Dify 工作流的<strong>智能面试助手</strong>。系统对用户上传的简历和模拟面试录音进行结构化分析，识别技能匹配度、项目表达完整性、违禁表述、知识薄弱项及回答逻辑等问题，并输出<strong>简历修改建议、能力评估等级、薄弱点总结和个性化面试题</strong>，为求职辅导、模拟面试和面试复盘提供支持。
         </p>
       </div>
       <div class="project-section">
         <h3>项目职责</h3>
         <ul class="project-list">
-          <li><strong>简历分析：</strong>构建 7 节点工作流，从简历中抽取姓名、技能、项目等 7 类信息，结合违禁词表与规则引擎自动生成修改建议，诊断效率提升约 60%</li>
-          <li><strong>录音分析：</strong>集成 Fun-ASR 转写语音，通过角色分配与问答对提取，循环检索知识库进行答案分级（A~D），自动输出弱项总结与正确答案</li>
-          <li><strong>面试题生成：</strong>将简历技能点拆分为 20+ 关键词，循环检索面试题库与知识库，为每人动态生成 25 题（含技术、项目深挖、人事问题），重复率低于 5%</li>
+          <li><strong>简历评估工作流：</strong>基于 Dify 搭建，编排文件解析、LLM 信息抽取、代码处理、条件分支、知识库检索和结果输出等节点；从简历中提取个人信息、技能栈、项目经历、教育背景等 7 类关键信息</li>
+          <li><strong>简历优化逻辑：</strong>结合违禁词库、岗位要求及规则引擎，对简历中的表述规范性、技能匹配度和项目描述完整性进行评估，自动生成可执行的修改建议</li>
+          <li><strong>面试录音分析：</strong>集成 Fun-ASR 实现模拟面试录音转写，通过 Dify 工作流完成问答片段提取、候选人回答分析及知识库检索；从准确性、完整性和表达逻辑等维度对回答进行 A~D 分级，定位候选人的薄弱知识点</li>
+          <li><strong>个性化题目生成：</strong>基于简历技能和项目经历拆解 20+ 个关键词，结合 Dify 知识库、循环节点与 LLM 动态生成技术原理、项目深挖和人事沟通类面试题；通过代码节点进行相似题过滤，输出个性化题库与参考答案</li>
         </ul>
       </div>
       <div class="project-section">
         <h3>项目成果</h3>
         <div class="highlight-box">
-          <p>在 30 份真实简历与 20 段模拟面试中测试，简历建议采纳率 <strong>75%</strong>，弱项识别准确率约 <strong>82%</strong>；项目获校内模拟面试活动采用，服务 <strong>200+</strong> 同学。</p>
+          <p>完成从简历解析、优化、语音转写、回答评估到个性化题目生成的<strong>全流程开发</strong>；在 30 份简历与 20 段模拟面试录音中测试，简历建议采纳率 <strong>75%</strong>，薄弱项识别准确率约 <strong>82%</strong>；累计服务 <strong>200+</strong> 名同学开展模拟面试与求职辅导。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 项目3：个人博客 -->
+    <div class="project-card fade-in">
+      <div class="project-header">
+        <h2>个人博客网站</h2>
+        <span class="project-time">2025.01 — 至今</span>
+      </div>
+      <div class="project-tech">
+        <span class="tag">HTML / CSS / JS</span>
+        <span class="tag">GitHub Pages</span>
+        <span class="tag">静态网站</span>
+      </div>
+      <div class="project-section">
+        <h3>项目描述</h3>
+        <p>
+          基于 GitHub Pages 搭建的个人技术博客，记录机器学习、深度学习与 Agent 开发的学习笔记和实践总结，持续更新中。
+        </p>
+      </div>
+      <div class="project-section">
+        <h3>项目链接</h3>
+        <div class="highlight-box">
+          <p>🔗 <a href="https://2349ccyy.github.io/my-blog/index.html" target="_blank" style="color: var(--accent);">https://2349ccyy.github.io/my-blog/index.html</a></p>
         </div>
       </div>
     </div>
