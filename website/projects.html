@@ -44,16 +44,19 @@
         <span class="tag">LangChain</span>
         <span class="tag">Milvus</span>
         <span class="tag">BGE-M3</span>
+        <span class="tag">BGE-Reranker</span>
+        <span class="tag">MiniLM</span>
         <span class="tag">FastAPI</span>
         <span class="tag">PostgreSQL</span>
         <span class="tag">Redis</span>
-        <span class="tag">Docker</span>
+        <span class="tag">Pydantic</span>
+        <span class="tag">SSE</span>
         <span class="tag">LLM</span>
       </div>
       <div class="project-section">
         <h3>项目描述</h3>
         <p>
-          面向电商企业的商品运营与客服协作场景，构建基于 LangGraph 的<strong>多智能体运营中台</strong>，覆盖企业知识问答、商品上架审核、经营数据分析、售前转化和售后履约等业务能力。我主要参与<strong>企业知识 RAG Agent</strong> 与<strong>商品上架审核 Agent</strong> 的设计和开发。
+          面向电商企业的商品运营与客服协作场景，构建基于 LangGraph 的<strong>多智能体运营中台</strong>，覆盖企业知识问答、商品上架审核、经营数据分析、售前转化和售后履约等业务能力。我主要参与<strong>企业知识 RAG Agent</strong> 与<strong>商品上架审核 Agent</strong> 的设计和开发：前者基于原有的传统 RAG 升级为<strong>多Agent 智能体</strong>，为全员提供基于企业私有资料的可追溯问答能力，重点辅助客服生成经人工确认后可发送的答复草稿；后者对商品标题、属性、图片进行多维规则审核，输出风险分级、字段级改写建议和人工审批任务，降低人工上架返工与违规风险。
         </p>
       </div>
       <div class="project-section">
@@ -74,7 +77,46 @@
       </div>
     </div>
 
-    <!-- 项目2：基于 Dify 工作流智能面试助手 -->
+    <!-- 项目2：电商企业私有知识库传统RAG系统 -->
+    <div class="project-card fade-in">
+      <div class="project-header">
+        <h2>电商企业私有知识库传统 RAG 系统</h2>
+        <span class="project-time">2025.06 — 2025.12</span>
+      </div>
+      <div class="project-tech">
+        <span class="tag">LangChain</span>
+        <span class="tag">Milvus</span>
+        <span class="tag">BGE-M3</span>
+        <span class="tag">BGE-Reranker</span>
+        <span class="tag">BM25</span>
+        <span class="tag">MySQL</span>
+        <span class="tag">Redis</span>
+        <span class="tag">FastAPI</span>
+        <span class="tag">LLM</span>
+      </div>
+      <div class="project-section">
+        <h3>项目描述</h3>
+        <p>
+          构建电商企业私有知识库问答系统，覆盖售后政策、物流发货、商品参数、平台规则、优惠活动及客服 SOP 等高频知识。系统采用<strong>"FAQ 快速匹配 + RAG 检索增强生成"双路架构</strong>：对标准高频问题直接返回统一答案，对复杂或长尾问题从企业知识库中检索依据并生成带引用的答复建议。
+        </p>
+      </div>
+      <div class="project-section">
+        <h3>项目职责</h3>
+        <ul class="project-list">
+          <li><strong>离线建库链路：</strong>支持 PDF、Word、Markdown、TXT 等文档解析，采用父子分块策略；补充店铺、品类、文档版本、生效时间、发布状态等元数据，实现知识版本可追溯与过期文档隔离</li>
+          <li><strong>混合检索 + 精排：</strong>基于 BGE-M3 为知识块生成稠密向量和稀疏向量，写入 Milvus Collection；在线检索时执行 Dense 语义召回与 Sparse 关键词召回，并通过 BGE-Reranker 精排提升检索效果</li>
+          <li><strong>双路问答流程：</strong>使用 BM25 在 MySQL FAQ 库中进行高频标准问题匹配，高置信度时直接返回标准答案；未命中时进入 Milvus 检索链路，将 Top-K 高相关知识块、用户问题及会话历史组装为 Prompt，调用 LLM 生成带引用、适用条件和追问建议的答复</li>
+        </ul>
+      </div>
+      <div class="project-section">
+        <h3>项目成果</h3>
+        <div class="highlight-box">
+          <p>完成电商企业私有知识库传统 RAG 系统的建设：通过 FAQ 快速命中<strong>降低高频问题的大模型调用成本</strong>，通过"混合检索 + 重排 + 引用约束"<strong>提升复杂问题的可追溯性</strong>，提升客服查询商品规则、物流政策和售后 SOP 时的资料定位效率。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 项目3：基于 Dify 工作流智能面试助手 -->
     <div class="project-card fade-in">
       <div class="project-header">
         <h2>基于 Dify 工作流智能面试助手</h2>
@@ -107,32 +149,7 @@
       <div class="project-section">
         <h3>项目成果</h3>
         <div class="highlight-box">
-          <p>完成从简历解析、优化、语音转写、回答评估到个性化题目生成的<strong>全流程开发</strong>；在 30 份简历与 20 段模拟面试录音中测试，简历建议采纳率 <strong>75%</strong>，薄弱项识别准确率约 <strong>82%</strong>；累计服务 <strong>200+</strong> 名同学开展模拟面试与求职辅导。</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- 项目3：个人博客 -->
-    <div class="project-card fade-in">
-      <div class="project-header">
-        <h2>个人博客网站</h2>
-        <span class="project-time">2025.01 — 至今</span>
-      </div>
-      <div class="project-tech">
-        <span class="tag">HTML / CSS / JS</span>
-        <span class="tag">GitHub Pages</span>
-        <span class="tag">静态网站</span>
-      </div>
-      <div class="project-section">
-        <h3>项目描述</h3>
-        <p>
-          基于 GitHub Pages 搭建的个人技术博客，记录机器学习、深度学习与 Agent 开发的学习笔记和实践总结，持续更新中。
-        </p>
-      </div>
-      <div class="project-section">
-        <h3>项目链接</h3>
-        <div class="highlight-box">
-          <p>🔗 <a href="https://2349ccyy.github.io/my-blog/index.html" target="_blank" style="color: var(--accent);">https://2349ccyy.github.io/my-blog/index.html</a></p>
+          <p>完成从简历解析、简历优化、语音转写、面试回答评估、知识库检索到个性化题目生成的<strong>全流程开发</strong>；在 30 份简历与 20 段模拟面试录音中进行测试，简历建议采纳率达 <strong>75%</strong>，薄弱项识别准确率约 <strong>82%</strong>。</p>
         </div>
       </div>
     </div>
